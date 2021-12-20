@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a8a67594-8387-4d18-bf30-9e693bee6b98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/Resizeable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/ResizeableTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/Square.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/SquareTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss7_AbtractAndInterface/bai_tap/Rectangle.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="22B1MvJFnz4IPgpPFvLKtnDNzBu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ss7_AbtractAndInterface" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a8a67594-8387-4d18-bf30-9e693bee6b98" name="Changes" comment="" />
+      <created>1639296121964</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639296121964</updated>
+      <workItem from="1639296123288" duration="69000" />
+      <workItem from="1639296324739" duration="746000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
