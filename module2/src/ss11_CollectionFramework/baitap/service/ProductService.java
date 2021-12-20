@@ -1,11 +1,13 @@
 package ss11_CollectionFramework.baitap.service;
 
+import ss11_CollectionFramework.baitap.common.ComparatorProductByDecreasePrice;
+import ss11_CollectionFramework.baitap.common.ComparatorProductByIncreasePrice;
 import ss11_CollectionFramework.baitap.model.Product;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
-import java.util.Comparator;
+
 
 
 
@@ -60,8 +62,6 @@ private static Scanner input=new Scanner(System.in);
         {
             this.display();
         }
-
-
     }
 
     @Override
@@ -82,8 +82,6 @@ private static Scanner input=new Scanner(System.in);
             System.out.println("Id was not found!");
         else
             this.display();
-
-
     }
 
     @Override
@@ -114,23 +112,20 @@ private static Scanner input=new Scanner(System.in);
 
     @Override
     public void sortIncrease() {
-        Collections.sort(product, new Comparator<Product>() {
+        /*Collections.sort(product, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
                 return o1.getProductprice() > o2.getProductprice() ? 1 : -1;
             }
-        });
+        });*/
+        Collections.sort(product,new ComparatorProductByIncreasePrice());
         display();
     }
 
 
     public void sortDecrease() {
-        Collections.sort(product, new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                return o2.getProductprice() > o1.getProductprice() ? 1 : -1;
-            }
-        });
+
+        Collections.sort(product,new ComparatorProductByDecreasePrice());
         display();
     }
 
