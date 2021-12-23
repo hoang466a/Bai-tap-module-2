@@ -6,7 +6,7 @@ public static final String File_source="D:\\Codegym\\Module02\\module2\\src\\ss1
 public static final String File_target="D:\\Codegym\\Module02\\module2\\src\\ss15_textfile\\baitap\\targetfile";
 
 
-public int countCharacter(String file) throws FileNotFoundException {
+public int countCharacter(String file) throws IOException {
         BufferedReader bw=null;
         int count=0;
         try{
@@ -23,11 +23,7 @@ public int countCharacter(String file) throws FileNotFoundException {
             System.err.println("Fie không tồn tại or nội dung có lỗi!");
             }
         finally {
-            try {
-                bw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            bw.close();
         }
         return count;
     }
@@ -70,6 +66,23 @@ public int countCharacter(String file) throws FileNotFoundException {
 
     public static void main(String[] args) {
         CopyToTargerFile check=new CopyToTargerFile();
+        /*String in="day khong la bai test";
+        try {
+            String result1="aloha bloha";
+            FileWriter test=new FileWriter("D:\\Codegym\\Module02\\module2\\src\\ss15_textfile\\baitap\\bloha.txt");
+            BufferedWriter bw1=new BufferedWriter(test);
+
+            /*int i;
+            while((i=bw1.read())!=-1)
+            {
+                result1+=(char)i;
+            }
+            bw1.write(result1);
+            bw1.close();
+            test.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
         try {
             System.out.println("Số lượng từ trong file gốc là: "+check.countCharacter(File_source));
             check.copyToTargetFile(File_source,File_target);
