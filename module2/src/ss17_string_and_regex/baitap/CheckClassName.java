@@ -8,7 +8,9 @@ public class CheckClassName {
     private static Pattern pattern;
     private Matcher matcher;
 
-    private static final String EMAIL_REGEX =   "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+    private static final String EMAIL_REGEX =   "^[C|A|P]+[0-9]{4}+[G|H|I|K|L|M]$";
+            //    ^[C|A|P]- Khớp ban đầu là C, A , P
+            //    [^C|A|P]- Không khớp ban đầu là C, A , P
 
     public CheckClassName() {
         pattern = Pattern.compile(EMAIL_REGEX);
