@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ByteStream {
 
-    public static final String FILE_PATH = "D:\\WorkSpace\\03_Company\\02_CodeGym\\02_Class\\2021\\C1021G1\\Module_2\\SourceDemo\\src\\ss16_binary_file\\student.dat";
+    public static final String FILE_PATH = "D:\\Codegym\\Module02\\module2\\src\\ss16_binaryfile\\thuchanh\\student.dat";
 
     public static void writeObject(Student student) throws IOException {
         FileOutputStream fos = new FileOutputStream(FILE_PATH);
