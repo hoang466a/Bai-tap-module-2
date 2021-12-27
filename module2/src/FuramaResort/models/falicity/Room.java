@@ -12,6 +12,13 @@ public class Room extends Facility{
         this.typeoffreeservice = typeoffreeservice;
     }
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "typeoffreeservice='" + typeoffreeservice + '\'' +
+                '}';
+    }
+
     public String getTypeoffreeservice() {
         return typeoffreeservice;
     }

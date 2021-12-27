@@ -4,7 +4,18 @@ public class House extends Facility{
     private String standard;
     private String numberoffloor;
 
-    public House(){};
+    public House(){}
+
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "standard='" + standard + '\'' +
+                ", numberoffloor='" + numberoffloor + '\'' +
+                '}';
+    }
+
+
 
     public House(String standard, String numberoffloor) {
         this.standard = standard;

@@ -84,11 +84,14 @@ public class Product_Service implements IProduct {
         while (!(productPriceString.matches("[0-9]{1,}"))) {
             System.out.println("Input is invalid!");
             System.out.println("Enter the product price:");
-            //input.skip("\\R");
             productPriceString = input.nextLine();
         }
+
+
+
+
         int productPrice = Integer.parseInt(productPriceString);
-        Product product=new Product(productId,  productName,productBrand,productPrice);
+        Product product=new Product(productId,productName,productBrand,productPrice);
         products.add(product);
         writeToFile(product_list,products);
         //writeToFile();

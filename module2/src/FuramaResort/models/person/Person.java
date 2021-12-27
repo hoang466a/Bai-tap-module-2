@@ -1,13 +1,13 @@
 package FuramaResort.models.person;
 
-public class Person {
+public abstract class Person {
     private String name;
     private String dateofbirth;
     private String gender;
     private String id;
     private String phonenumber;
     private String email;
-    private String code;
+    private String CMND;
 
     public Person() {}
 
@@ -18,21 +18,11 @@ public class Person {
         this.id = id;
         this.phonenumber = phonenumber;
         this.email = email;
-        this.code = code;
+        this.CMND = code;
     }
 
     @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", dateofbirth='" + dateofbirth + '\'' +
-                ", gender='" + gender + '\'' +
-                ", id='" + id + '\'' +
-                ", phonenumber='" + phonenumber + '\'' +
-                ", email='" + email + '\'' +
-                ", code='" + code + '\'' +
-                '}';
-    }
+    public abstract String toString() ;
 
     public String getName() {
         return name;
@@ -82,11 +72,11 @@ public class Person {
         this.email = email;
     }
 
-    public String getCode() {
-        return code;
+    public String getCMND() {
+        return CMND;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setCMND(String CMND) {
+        this.CMND = CMND;
     }
 }

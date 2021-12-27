@@ -1,6 +1,6 @@
 package FuramaResort.models.falicity;
 
-public class Facility {
+    public abstract class  Facility {
     private String nameservice;
     private String usablearea;
     private String rentexpense;
@@ -59,13 +59,5 @@ public class Facility {
     }
 
     @Override
-    public String toString() {
-        return "Facility{" +
-                "nameservice='" + nameservice + '\'' +
-                ", usablearea='" + usablearea + '\'' +
-                ", rentexpense='" + rentexpense + '\'' +
-                ", maxpeopleinfalicity='" + maxpeopleinfalicity + '\'' +
-                ", typeofrent='" + typeofrent + '\'' +
-                '}';
-    }
+    public abstract String toString();
 }

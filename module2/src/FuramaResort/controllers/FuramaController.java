@@ -1,8 +1,22 @@
 package FuramaResort.controllers;
+import FuramaResort.services.*;
+import FuramaResort.services.impl.BookingService;
+import FuramaResort.services.impl.CustomerService;
+import FuramaResort.services.impl.FalicityService;
+
 import java.util.Scanner;
 import java.util.Stack;
 
 public class FuramaController {
+    static BookingServiceImpl bookingService=new BookingServiceImpl();
+    static ContractServiceImpl contractService=new ContractServiceImpl();
+    static CustomerServiceImpl customerService=new CustomerServiceImpl();
+    static EmployeeServiceImpl employeeService=new EmployeeServiceImpl();
+    static FacilityServiceImpl facilityService=new FacilityServiceImpl();
+
+
+
+
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
 
@@ -30,14 +44,17 @@ public class FuramaController {
                 switch(choice1){
                     case 1:
                     {
+                        employeeService.display1();
                         break;
                     }
                     case 2:
                     {
+                        employeeService.add();
                         break;
                     }
                     case 3:
                     {
+                        employeeService.edit();
                         break;
                     }
                     case 4:
