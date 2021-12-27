@@ -16,6 +16,7 @@ public class Customer extends Person {
         return type;
     }
 
+
     public void setType(String type) {
         this.type = type;
     }
