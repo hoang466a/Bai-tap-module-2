@@ -77,23 +77,23 @@ public class FuramaController {
                 switch(choice2){
                     case 1:
                     {
+                        customerService.display1();
                         break;
                     }
                     case 2:
                     {
+                        customerService.add();
                         break;
                     }
                     case 3:
                     {
+                        customerService.edit();
                         break;
                     }
                     case 4:
                     {
                         continue;
                     }}
-
-
-
                 break;
             }
 

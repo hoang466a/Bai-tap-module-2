@@ -6,7 +6,7 @@ public class Customer extends Person {
 
     public Customer(){};
 
-    public Customer(String name, String dateofbirth, String gender, String id, String phonenumber, String email, String CMND, String type, String address) {
+    public Customer(String id, String name, String dateofbirth, String gender, String CMND, String phonenumber, String email, String type,String address) {
         super(name, dateofbirth, gender, id, phonenumber, email, CMND);
         this.type = type;
         this.address = address;
@@ -19,8 +19,15 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                "type='" + type + '\'' +
-                ", address='" + address + '\'' +
+                "id="+this.getId()+
+                ", name="+this.getName()+
+                ", date of birth="+this.getDateofbirth()+
+                ", gender="+this.getGender()+
+                ", CMND="+this.getCMND()+
+                ", Phone number="+this.getPhonenumber()+
+                ", Email=" +this.getEmail()+
+                ", type customer='" + this.getType() + '\'' +
+                ", address='" + this.getAddress() + '\'' +
                 '}';
     }
 
