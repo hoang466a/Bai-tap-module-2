@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
     Scanner input=new Scanner(System.in);
-    static List<Customer> customers=new LinkedList<>();
+    public static List<Customer> customers=new LinkedList<>();
     static {
         Customer customer1=new Customer("1234","Ngo Van A","12/12/1212","Nam","012345678","0912612645","VANA@gmail.com","Diamond","Da Nang");
         Customer customer2=new Customer("1235","Ngo Van B","13/12/1212","NU","012345678","0912612645","VANA@gmail.com","Diamond","Da Nang");
@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 
-    public void display1(){
+    public void display(){
         for (Customer display:customers)
         {
             System.out.println(display);

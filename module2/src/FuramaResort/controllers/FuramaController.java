@@ -1,11 +1,7 @@
 package FuramaResort.controllers;
 import FuramaResort.services.*;
-import FuramaResort.services.impl.BookingService;
-import FuramaResort.services.impl.CustomerService;
-import FuramaResort.services.impl.FalicityService;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 public class FuramaController {
     static BookingServiceImpl bookingService=new BookingServiceImpl();
@@ -13,12 +9,41 @@ public class FuramaController {
     static CustomerServiceImpl customerService=new CustomerServiceImpl();
     static EmployeeServiceImpl employeeService=new EmployeeServiceImpl();
     static FacilityServiceImpl facilityService=new FacilityServiceImpl();
+    static Scanner input=new Scanner(System.in);
+
+    static void DisplayListNewFacility()
+    {
+        while  (1>0) {
+            System.out.println("1. Add new villa");
+            System.out.println("2. Add new house");
+            System.out.println("3. Add new room");
+            System.out.println("4. Back to menu");
+            int newFacility = Integer.parseInt(input.nextLine());
+            switch (newFacility) {
+                case 1:
+                    facilityService.addVilla();
+                    continue;
+                case 2:
+                    facilityService.addHouse();
+                    continue;
+                case 3:
+                    facilityService.addRoom();
+                    continue;
+                case 4:
+                    break;
+            }
+            break;
+
+        }
+
+    }
+
 
 
 
 
     public static void main(String[] args) {
-        Scanner input=new Scanner(System.in);
+
 
         while (1>0)
         {
@@ -44,18 +69,18 @@ public class FuramaController {
                 switch(choice1){
                     case 1:
                     {
-                        employeeService.display1();
-                        break;
+                        employeeService.display();
+                        continue;
                     }
                     case 2:
                     {
                         employeeService.add();
-                        break;
+                        continue;
                     }
                     case 3:
                     {
                         employeeService.edit();
-                        break;
+                        continue;
                     }
                     case 4:
                     {
@@ -77,18 +102,18 @@ public class FuramaController {
                 switch(choice2){
                     case 1:
                     {
-                        customerService.display1();
-                        break;
+                        customerService.display();
+                        continue;
                     }
                     case 2:
                     {
                         customerService.add();
-                        break;
+                        continue;
                     }
                     case 3:
                     {
                         customerService.edit();
-                        break;
+                        continue;
                     }
                     case 4:
                     {
@@ -107,15 +132,18 @@ public class FuramaController {
                 switch(choice3){
                     case 1:
                     {
-                        break;
+                        facilityService.display();
+                        continue;
                     }
                     case 2:
                     {
-                        break;
+                        DisplayListNewFacility();
+                        continue;
                     }
                     case 3:
                     {
-                        break;
+                        facilityService.displayMaintenance();
+                        continue;
                     }
                     case 4:
                     {

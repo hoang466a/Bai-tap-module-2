@@ -1,61 +1,61 @@
 package FuramaResort.models.falicity;
 
     public abstract class  Facility {
-    private String nameservice;
-    private String usablearea;
-    private String rentexpense;
-    private String maxpeopleinfalicity;
-    private String typeofrent;
+    private String nameService;
+    private double usableArea;
+    private int rentExpense;
+    private int maxPeopleInFalicity;
+    private String typeOfRent;
 
 
     public Facility(){};
 
-    public Facility(String nameservice, String usablearea, String rentexpense, String maxpeopleinfalicity, String typeofrent) {
-        this.nameservice = nameservice;
-        this.usablearea = usablearea;
-        this.rentexpense = rentexpense;
-        this.maxpeopleinfalicity = maxpeopleinfalicity;
-        this.typeofrent = typeofrent;
+    public Facility(String nameservice, double usablearea, int rentexpense, int maxpeopleinfalicity, String typeofrent) {
+        this.nameService = nameservice;
+        this.usableArea = usablearea;
+        this.rentExpense = rentexpense;
+        this.maxPeopleInFalicity = maxpeopleinfalicity;
+        this.typeOfRent = typeofrent;
     }
 
-    public String getNameservice() {
-        return nameservice;
+    public String getNameService() {
+        return nameService;
     }
 
-    public void setNameservice(String nameservice) {
-        this.nameservice = nameservice;
+    public void setNameService(String nameService) {
+        this.nameService = nameService;
     }
 
-    public String getUsablearea() {
-        return usablearea;
+    public double getUsableArea() {
+        return usableArea;
     }
 
-    public void setUsablearea(String usablearea) {
-        this.usablearea = usablearea;
+    public void setUsableArea(double usableArea) {
+        this.usableArea = usableArea;
     }
 
-    public String getRentexpense() {
-        return rentexpense;
+    public int getRentExpense() {
+        return rentExpense;
     }
 
-    public void setRentexpense(String rentexpense) {
-        this.rentexpense = rentexpense;
+    public void setRentExpense(int rentExpense) {
+        this.rentExpense = rentExpense;
     }
 
-    public String getMaxpeopleinfalicity() {
-        return maxpeopleinfalicity;
+    public int getMaxPeopleInFalicity() {
+        return maxPeopleInFalicity;
     }
 
-    public void setMaxpeopleinfalicity(String maxpeopleinfalicity) {
-        this.maxpeopleinfalicity = maxpeopleinfalicity;
+    public void setMaxPeopleInFalicity(int maxPeopleInFalicity) {
+        this.maxPeopleInFalicity = maxPeopleInFalicity;
     }
 
-    public String getTypeofrent() {
-        return typeofrent;
+    public String getTypeOfRent() {
+        return typeOfRent;
     }
 
-    public void setTypeofrent(String typeofrent) {
-        this.typeofrent = typeofrent;
+    public void setTypeOfRent(String typeOfRent) {
+        this.typeOfRent = typeOfRent;
     }
 
     @Override

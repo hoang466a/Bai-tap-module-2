@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
-    public void display1(){
+    public void display(){
         for (Employee employee:employees)
         {
             System.out.println(employee);
@@ -88,7 +88,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.setSalary(input.nextLine());
             }
         }
-        display1();
+        display();
         if (check=false)
         {
             System.out.println("Employee id not found!");

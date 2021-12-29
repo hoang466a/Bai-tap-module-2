@@ -1,83 +1,83 @@
 package FuramaResort.models;
 
 public class Booking {
-    private String idboooking;
-    private String firstday;
-    private String lastday;
-    private String idcustomer;
-    private String nameservice;
-    private String typeservice;
+    private String idBoooking;
+    private String firstDay;
+    private String lastDay;
+    private String idCustomer;
+    private String nameService;
+    private String typeService;
 
 
     public Booking(){};
 
     public Booking(String idboooking, String firstday, String lastday, String idcustomer, String nameservice, String typeservice) {
-        this.idboooking = idboooking;
-        this.firstday = firstday;
-        this.lastday = lastday;
-        this.idcustomer = idcustomer;
-        this.nameservice = nameservice;
-        this.typeservice = typeservice;
+        this.idBoooking = idboooking;
+        this.firstDay = firstday;
+        this.lastDay = lastday;
+        this.idCustomer = idcustomer;
+        this.nameService = nameservice;
+        this.typeService = typeservice;
     }
 
     @Override
     public String toString() {
         return "Booking{" +
-                "idboooking='" + idboooking + '\'' +
-                ", firstday='" + firstday + '\'' +
-                ", lastday='" + lastday + '\'' +
-                ", idcustomer='" + idcustomer + '\'' +
-                ", nameservice='" + nameservice + '\'' +
-                ", typeservice='" + typeservice + '\'' +
+                "idboooking='" + idBoooking + '\'' +
+                ", firstday='" + firstDay + '\'' +
+                ", lastday='" + lastDay + '\'' +
+                ", idcustomer='" + idCustomer + '\'' +
+                ", nameservice='" + nameService + '\'' +
+                ", typeservice='" + typeService + '\'' +
                 '}';
     }
 
-    public String getIdboooking() {
-        return idboooking;
+    public String getIdBoooking() {
+        return idBoooking;
     }
 
-    public void setIdboooking(String idboooking) {
-        this.idboooking = idboooking;
+    public void setIdBoooking(String idBoooking) {
+        this.idBoooking = idBoooking;
     }
 
-    public String getFirstday() {
-        return firstday;
+    public String getFirstDay() {
+        return firstDay;
     }
 
-    public void setFirstday(String firstday) {
-        this.firstday = firstday;
+    public void setFirstDay(String firstDay) {
+        this.firstDay = firstDay;
     }
 
-    public String getLastday() {
-        return lastday;
+    public String getLastDay() {
+        return lastDay;
     }
 
-    public void setLastday(String lastday) {
-        this.lastday = lastday;
+    public void setLastDay(String lastDay) {
+        this.lastDay = lastDay;
     }
 
-    public String getIdcustomer() {
-        return idcustomer;
+    public String getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setIdcustomer(String idcustomer) {
-        this.idcustomer = idcustomer;
+    public void setIdCustomer(String idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
-    public String getNameservice() {
-        return nameservice;
+    public String getNameService() {
+        return nameService;
     }
 
-    public void setNameservice(String nameservice) {
-        this.nameservice = nameservice;
+    public void setNameService(String nameService) {
+        this.nameService = nameService;
     }
 
-    public String getTypeservice() {
-        return typeservice;
+    public String getTypeService() {
+        return typeService;
     }
 
-    public void setTypeservice(String typeservice) {
-        this.typeservice = typeservice;
+    public void setTypeService(String typeService) {
+        this.typeService = typeService;
     }
 
 

@@ -4,13 +4,13 @@ public class Contract {
     private String contractid;
     private String idbooking;
     private String deposit;
-    private String totalmoney;
+    private int totalmoney;
     private String idcustomer;
 
     public Contract(){};
 
 
-    public Contract(String contractid, String idbooking, String deposit, String totalmoney, String idcustomer) {
+    public Contract(String contractid, String idbooking, String deposit, int totalmoney, String idcustomer) {
         this.contractid = contractid;
         this.idbooking = idbooking;
         this.deposit = deposit;
@@ -42,11 +42,11 @@ public class Contract {
         this.deposit = deposit;
     }
 
-    public String getTotalmoney() {
+    public int getTotalmoney() {
         return totalmoney;
     }
 
-    public void setTotalmoney(String totalmoney) {
+    public void setTotalmoney(int totalmoney) {
         this.totalmoney = totalmoney;
     }
 

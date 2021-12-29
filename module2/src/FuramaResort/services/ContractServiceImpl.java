@@ -6,6 +6,11 @@ public class ContractServiceImpl implements ContractService {
     public void display1(){}
 
     @Override
+    public void display() {
+
+    }
+
+    @Override
     public void create() {
 
     }

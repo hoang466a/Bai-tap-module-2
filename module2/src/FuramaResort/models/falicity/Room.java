@@ -1,29 +1,36 @@
 package FuramaResort.models.falicity;
 
 public class Room extends Facility{
-    private String typeoffreeservice;
+    private String typeOfFreeService;
+
+    public Room(){}
 
     public Room(String typeoffreeservice) {
-        this.typeoffreeservice = typeoffreeservice;
+        this.typeOfFreeService = typeoffreeservice;
     }
 
-    public Room(String nameservice, String usablearea, String rentexpense, String maxpeopleinfalicity, String typeofrent, String typeoffreeservice) {
+    public Room(String nameservice, double usablearea, int rentexpense, int maxpeopleinfalicity, String typeofrent, String typeoffreeservice) {
         super(nameservice, usablearea, rentexpense, maxpeopleinfalicity, typeofrent);
-        this.typeoffreeservice = typeoffreeservice;
+        this.typeOfFreeService = typeoffreeservice;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                "typeoffreeservice='" + typeoffreeservice + '\'' +
+                "name service='" + getNameService() + '\'' +
+                ", usable area='" + getUsableArea() + '\'' +
+                ", rent expense='" + getRentExpense() + '\'' +
+                ", max people in room='" + getMaxPeopleInFalicity() + '\'' +
+                ", type of rent ='" + getTypeOfRent() + '\'' +
+                ", type of freeservice='" + typeOfFreeService + '\'' +
                 '}';
     }
 
-    public String getTypeoffreeservice() {
-        return typeoffreeservice;
+    public String getTypeOfFreeService() {
+        return typeOfFreeService;
     }
 
-    public void setTypeoffreeservice(String typeoffreeservice) {
-        this.typeoffreeservice = typeoffreeservice;
+    public void setTypeOfFreeService(String typeOfFreeService) {
+        this.typeOfFreeService = typeOfFreeService;
     }
 }
