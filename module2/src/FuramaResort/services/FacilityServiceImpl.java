@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements FacilityService {
+    public static String filePath="D:\\Codegym\\Module02\\module2\\src\\FuramaResort\\services\\impl\\FacilityService.java";
     public static Map<Facility,Integer> facilityIntegerMap=new LinkedHashMap<>();
     static{
         Facility villa2=new Villa("SVVL-1111",200,4000,19,"year","VIP",10.5,3);
@@ -94,6 +95,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Add new house successful!");
     }
 
+
     @Override
     public void addRoom() {
         System.out.println("Enter name of room: ");
@@ -107,7 +109,8 @@ public class FacilityServiceImpl implements FacilityService {
 
 
         System.out.println("Enter usable area of room: ");
-        double usableArea=Double.parseDouble(input.nextLine());
+        String usableAreaString=input.nextLine();
+        double usableArea=Double.parseDouble(usableAreaString);
         while(usableArea<30)
         {
             System.out.println("Input is wrong! Plaese re-enter: ");
