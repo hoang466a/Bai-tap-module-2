@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
         try {
             br=new BufferedReader(new FileReader(file));
             String line;
-            String []temp;
+            String[] temp;
             Customer customer;
             while ((line=br.readLine())!=null) {
                 temp = line.split(",");

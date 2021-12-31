@@ -4,7 +4,7 @@ public class House extends Facility{
     private String standard;
     private String numberOfFloor;
 
-    public House(){}
+    public House(String s, String s1, String s2, String s3, String s4, String s5){}
 
 
     @Override

@@ -4,12 +4,11 @@ import FuramaResort.models.falicity.Facility;
 import FuramaResort.models.falicity.House;
 import FuramaResort.models.falicity.Room;
 import FuramaResort.models.falicity.Villa;
+import FuramaResort.models.person.Customer;
 import FuramaResort.models.person.Employee;
 import FuramaResort.services.impl.FacilityService;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
@@ -20,6 +19,7 @@ public class FacilityServiceImpl implements FacilityService {
     public static Map<Facility,Integer> facilityHouse=new LinkedHashMap<>();
     public static Map<Facility,Integer> facilityVilla=new LinkedHashMap<>();
     public static Map<Facility,Integer> facilityRoom=new LinkedHashMap<>();
+
     static{
         Facility villa2=new Villa("SVVL-1111","200","4000","19","year","VIP","10.5","3");
         Facility house2=new House("SVHO-2222","100","1000","10","day","STANDARD","2");
@@ -29,6 +29,7 @@ public class FacilityServiceImpl implements FacilityService {
         facilityHouse.put(house2,2);
         facilityVilla.put(villa2,5);
         facilityRoom.put(room2,3);
+
         writeHouse(fileHouse,facilityHouse);
     }
 
@@ -167,6 +168,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Villa villa=new Villa(name,usableArea,rentExpense,max,type,standard,pool,floor);
         facilityVilla.put(villa,0);
+        writeVilla(fileVilla,facilityVilla);
 
         System.out.println("Add new villa successful!");
     }
@@ -198,8 +200,6 @@ public class FacilityServiceImpl implements FacilityService {
 
 
 
-
-
         System.out.println("Enter rent expense (More than zero): ");
         String rentExpense=input.nextLine();
         while(rentExpense==null||!rentExpense.matches("^\\d*[1-9]\\d*$"))
@@ -208,8 +208,6 @@ public class FacilityServiceImpl implements FacilityService {
             System.out.println("Enter rent expense: ");
             rentExpense=input.nextLine();
         }
-
-
 
 
 
@@ -348,6 +346,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Room room=new Room(name,usableArea,rentExpense,max,type,free);
         facilityRoom.put(room,0);
+        writeRoom(fileRoom,facilityRoom);
         System.out.println("Add new room successful!");
     }
 
@@ -381,7 +380,7 @@ public class FacilityServiceImpl implements FacilityService {
                         element.getKey().getMaxPeopleInFalicity() + ", " +
                         element.getKey().getTypeOfRent() + ", " +
                         ((House) element.getKey()).getStandard() + ", " +
-                        ((House) element.getKey()).getNumberOfFloor() + ", Number of used: " +
+                        ((House) element.getKey()).getNumberOfFloor() + "," +
                         element.getValue() + "\n");
             }
             bw.close();
@@ -404,7 +403,7 @@ public class FacilityServiceImpl implements FacilityService {
                         element.getKey().getTypeOfRent() + ", " +
                         ((Villa) element.getKey()).getStandard() + ", " +
                         ((Villa) element.getKey()).getNumberoffloor() + ", " +
-                        ((Villa) element.getKey()).getPoolarea() + ", Number of used: " +
+                        ((Villa) element.getKey()).getPoolarea() + "," +
                         element.getValue() + "\n");
             }
             bw.close();
@@ -414,4 +413,128 @@ public class FacilityServiceImpl implements FacilityService {
 
     }
 
+    public static void writeRoom(String filePath, Map<Facility,Integer>facilityRoom) {
+        try {
+            FileWriter fw = new FileWriter(filePath);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (Map.Entry<Facility, Integer> element : facilityRoom.entrySet()) {
+
+                bw.write(element.getKey().getNameService() + ", " +
+                        element.getKey().getUsableArea() + ", " +
+                        element.getKey().getRentExpense() + ", " +
+                        element.getKey().getMaxPeopleInFalicity() + ", " +
+                        element.getKey().getTypeOfRent() + ", " +
+                        ((Room) element.getKey()).getTypeOfFreeService() + "," +
+                        element.getValue() + "\n");
+            }
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+
+    }
+
+
+
+    public static Map<Facility,Integer> readHouse(String file)
+    {
+        Map <Facility,Integer> mapHouse= new LinkedHashMap<>();
+        BufferedReader br=null;
+
+        try {
+            br=new BufferedReader(new FileReader(file));
+            String line;
+            String[] temp;
+            House house;
+            while ((line=br.readLine())!=null) {
+                temp = line.split(",");
+                System.out.println(temp);
+                house = new House(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+                int numberOfUsed=Integer.parseInt(temp[7]);
+                mapHouse.put(house,numberOfUsed);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Failed to Read File from Data!");
+        }
+        finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                System.out.println("Failed to Read File from Data!");
+            }
+        }
+        return mapHouse;
+    }
+
+
+
+    public static Map<Facility,Integer> readRoom(String file)
+    {
+        Map <Facility,Integer> mapRoom= new LinkedHashMap<>();
+        BufferedReader br=null;
+
+        try {
+            br=new BufferedReader(new FileReader(file));
+            String line;
+            String[] temp;
+            Room room;
+            while ((line=br.readLine())!=null) {
+                temp = line.split(",");
+                System.out.println(temp);
+                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4],temp[5]);
+                int numberOfUsed=Integer.parseInt(temp[6]);
+                mapRoom.put(room,numberOfUsed);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Failed to Read File from Data!");
+        }
+        finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                System.out.println("Failed to Read File from Data!");
+            }
+        }
+        return mapRoom;
+    }
+
+
+    public static Map<Facility,Integer> readVilla(String file)
+    {
+        Map <Facility,Integer> mapVilla= new LinkedHashMap<>();
+        BufferedReader br=null;
+
+        try {
+            br=new BufferedReader(new FileReader(file));
+            String line;
+            String[] temp;
+            Villa villa;
+            while ((line=br.readLine())!=null) {
+                temp = line.split(",");
+                System.out.println(temp);
+                 villa= new Villa(temp[0], temp[1], temp[2], temp[3], temp[4],temp[5],temp[6],temp[7]);
+                int numberOfUsed=Integer.parseInt(temp[8]);
+                mapVilla.put(villa,numberOfUsed);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Failed to Read File from Data!");
+        }
+        finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                System.out.println("Failed to Read File from Data!");
+            }
+        }
+        return mapVilla;
+    }
 }
+
