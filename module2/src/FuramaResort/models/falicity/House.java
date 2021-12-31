@@ -2,7 +2,7 @@ package FuramaResort.models.falicity;
 
 public class House extends Facility{
     private String standard;
-    private int numberOfFloor;
+    private String numberOfFloor;
 
     public House(){}
 
@@ -22,12 +22,28 @@ public class House extends Facility{
 
 
 
-    public House(String standard, int numberoffloor) {
+    public House(String standard, String numberoffloor) {
         this.standard = standard;
         this.numberOfFloor = numberoffloor;
     }
 
-    public House(String nameservice, double usablearea, int rentexpense, int maxpeopleinfalicity, String typeofrent, String standard, int numberoffloor) {
+    public String getStandard() {
+        return standard;
+    }
+
+    public void setStandard(String standard) {
+        this.standard = standard;
+    }
+
+    public String getNumberOfFloor() {
+        return numberOfFloor;
+    }
+
+    public void setNumberOfFloor(String numberOfFloor) {
+        this.numberOfFloor = numberOfFloor;
+    }
+
+    public House(String nameservice, String usablearea, String rentexpense, String maxpeopleinfalicity, String typeofrent, String standard, String numberoffloor) {
         super(nameservice, usablearea, rentexpense, maxpeopleinfalicity, typeofrent);
         this.standard = standard;
         this.numberOfFloor = numberoffloor;

@@ -2,18 +2,18 @@ package FuramaResort.models.falicity;
 
 public class Villa extends Facility{
     private String standard;
-    private double poolarea;
-    private int numberoffloor;
+    private String poolarea;
+    private String numberoffloor;
 
     public Villa(){};
 
-    public Villa(String standard, double poolarea, int numberoffloor) {
+    public Villa(String standard, String poolarea, String numberoffloor) {
         this.standard = standard;
         this.poolarea = poolarea;
         this.numberoffloor = numberoffloor;
     }
 
-    public Villa(String nameservice, double usablearea, int rentexpense, int maxpeopleinfalicity, String typeofrent, String standard, double poolarea, int numberoffloor) {
+    public Villa(String nameservice, String usablearea, String rentexpense, String maxpeopleinfalicity, String typeofrent, String standard, String poolarea, String numberoffloor) {
         super(nameservice, usablearea, rentexpense, maxpeopleinfalicity, typeofrent);
         this.standard = standard;
         this.poolarea = poolarea;
@@ -42,19 +42,19 @@ public class Villa extends Facility{
         this.standard = standard;
     }
 
-    public double getPoolarea() {
+    public String getPoolarea() {
         return poolarea;
     }
 
-    public void setPoolarea(double poolarea) {
+    public void setPoolarea(String poolarea) {
         this.poolarea = poolarea;
     }
 
-    public int getNumberoffloor() {
+    public String getNumberoffloor() {
         return numberoffloor;
     }
 
-    public void setNumberoffloor(int numberoffloor) {
+    public void setNumberoffloor(String numberoffloor) {
         this.numberoffloor = numberoffloor;
     }
 }

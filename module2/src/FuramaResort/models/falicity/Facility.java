@@ -2,15 +2,15 @@ package FuramaResort.models.falicity;
 
     public abstract class  Facility {
     private String nameService;
-    private double usableArea;
-    private int rentExpense;
-    private int maxPeopleInFalicity;
+    private String usableArea;
+    private String rentExpense;
+    private String maxPeopleInFalicity;
     private String typeOfRent;
 
 
     public Facility(){};
 
-    public Facility(String nameservice, double usablearea, int rentexpense, int maxpeopleinfalicity, String typeofrent) {
+    public Facility(String nameservice, String usablearea, String rentexpense, String maxpeopleinfalicity, String typeofrent) {
         this.nameService = nameservice;
         this.usableArea = usablearea;
         this.rentExpense = rentexpense;
@@ -26,27 +26,27 @@ package FuramaResort.models.falicity;
         this.nameService = nameService;
     }
 
-    public double getUsableArea() {
+    public String getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(double usableArea) {
+    public void setUsableArea(String usableArea) {
         this.usableArea = usableArea;
     }
 
-    public int getRentExpense() {
+    public String getRentExpense() {
         return rentExpense;
     }
 
-    public void setRentExpense(int rentExpense) {
+    public void setRentExpense(String rentExpense) {
         this.rentExpense = rentExpense;
     }
 
-    public int getMaxPeopleInFalicity() {
+    public String getMaxPeopleInFalicity() {
         return maxPeopleInFalicity;
     }
 
-    public void setMaxPeopleInFalicity(int maxPeopleInFalicity) {
+    public void setMaxPeopleInFalicity(String maxPeopleInFalicity) {
         this.maxPeopleInFalicity = maxPeopleInFalicity;
     }
 
