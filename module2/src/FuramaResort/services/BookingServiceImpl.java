@@ -35,12 +35,6 @@ public class BookingServiceImpl implements BookingService {
         facilityIntegerMap.putAll(facilityVilla);
     }
 
-    public static void main(String[] args) {
-        for (Map.Entry<Facility, Integer> element : facilityIntegerMap.entrySet()) {
-            System.out.println("Service " + element.getKey());
-        }
-    }
-
 
     @Override
     public void display() {
