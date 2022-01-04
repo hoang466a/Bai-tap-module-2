@@ -5,6 +5,6 @@ public class MyException extends Exception {
 
     @Override
     public String getMessage() {
-        return "Đây là MyException của tôi";
+        return "Không tìm thấy giá trị cần tìm, xin nhập lại";
     }
 }

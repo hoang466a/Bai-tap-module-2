@@ -87,9 +87,56 @@ public class TeacherCodegymServiceImpl implements TeacherService {
         System.out.println("Thêm vào file thành công!");
     }
 
-    @Override
     public void delete() {
+        display();
+        System.out.println("Nhập vào id giáo viên muốn xóa:");
+        String idDelete = input.nextLine();
+        boolean checkId = false;
+        while (idDelete == null || !idDelete.matches("^[G][V][-][0-9]{4}")) {
+            System.out.println("Mã nhập vào không hợp lệ, xin nhập lại!");
+            System.out.println("Nhập vào mã giáo viên: ");
+            idDelete = input.nextLine();
+        }
+        List<Teacher> teacherListDelete = readFile(fileTeacher);
+        for (Teacher teacher : teacherListDelete) {
+            if (idDelete.equals(teacher.getId())) {
+                System.out.println("Đã tìm thấy!");
+                System.out.println(teacher);
+                System.out.println("Bạn có muốn xóa hay không?");
+                System.out.println("1.có");
+                System.out.println("2.không");
+                String choice = input.nextLine();
+                while (choice == null || !choice.matches("[0-9]")) {
+                    System.out.println("Đầu vào nhập sai! Xin nhập lại");
+                    System.out.println("Chọn chức năng:");
+                    choice = input.nextLine();
+                }
+                switch (choice) {
+                    case "1":
+                        System.out.println("Đã xóa");
+                        teacherListDelete.remove(teacher);
+                        writeFile(fileTeacher, teacherListDelete);
+                        display();
+                        checkId = true;
+                        continue;
+                    case "2":
+                        System.out.println("Đã hủy lệnh xóa");
+                        display();
+                        checkId = true;
+                        continue;
+                }
 
+
+            }
+        }
+        if (!checkId) {
+            try {
+                throw new MyException();
+            } catch (MyException e) {
+                System.out.println(e.getMessage());
+                ;
+            }
+        }
     }
 
     @Override
@@ -111,7 +158,8 @@ public class TeacherCodegymServiceImpl implements TeacherService {
             System.out.println("Nhập vào mã giáo viên: ");
             id=input.nextLine();
         }
-        for (Teacher teacher:teacherList)
+        List<Teacher>teacherListDisplay=readFile(fileTeacher);
+        for (Teacher teacher:teacherListDisplay)
         {
             if (id.equals(teacher.getId()))
             {
@@ -134,7 +182,7 @@ public class TeacherCodegymServiceImpl implements TeacherService {
 
 
 
-    public void writeFile(String filePath,LinkedList<Teacher> teacherList)
+    public void writeFile(String filePath, List<Teacher> teacherList)
     {
         try {
             FileWriter fw=new FileWriter(filePath);
@@ -168,7 +216,6 @@ public class TeacherCodegymServiceImpl implements TeacherService {
             Teacher teacher;
             while ((line=br.readLine())!=null) {
                 temp = line.split(",");
-                System.out.println(temp);
                 teacher = new Teacher(temp[0], temp[1], temp[2], temp[3], temp[4]);
                 teacherList.add(teacher);
             }

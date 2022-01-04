@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class CodeGymController {
     static TeacherCodegymServiceImpl teacherCodegymService=new TeacherCodegymServiceImpl();
-    static StudentCodeGymServiceImpl studentCodeGymService;
+    static StudentCodeGymServiceImpl studentCodeGymService=new StudentCodeGymServiceImpl();
     static Scanner input=new Scanner(System.in);
 
 
@@ -59,10 +59,30 @@ public class CodeGymController {
                     }
                     continue;
                 case "2":
-
-
-
-                    break;
+                    System.out.println("Bạn muốn xóa trong danh sách giáo viên hay học sinh?");
+                    System.out.println("1.giảng viên");
+                    System.out.println("2.học sinh");
+                    System.out.println("Chọn chức năng:");
+                    String choice4=input.nextLine();
+                    while(choice4==null||!choice.matches("[0-9]"))
+                    {
+                        System.out.println("Đầu vào nhập sai! Xin nhập lại");
+                        System.out.println("Chọn chức năng:");
+                        choice4=input.nextLine();
+                    }
+                    if(choice4.equals("1"))
+                    {
+                        teacherCodegymService.delete();
+                    }
+                    else if(choice4.equals("2"))
+                    {
+                        studentCodeGymService.delete();
+                    }
+                    else{
+                        System.out.println("Xin mời chọn lại!");
+                        continue;
+                    }
+                    continue;
                 case "3":
                     System.out.println("Bạn muốn xem danh sách giảng viên hay học sinh?");
                     System.out.println("1.giảng viên");
@@ -93,18 +113,18 @@ public class CodeGymController {
                     System.out.println("1.giảng viên");
                     System.out.println("2.học sinh");
                     System.out.println("Chọn chức năng:");
-                    String choice4=input.nextLine();
-                    while(choice4==null||!choice.matches("[0-9]"))
+                    String choice5=input.nextLine();
+                    while(choice5==null||!choice.matches("[0-9]"))
                     {
                         System.out.println("Đầu vào nhập sai! Xin nhập lại");
                         System.out.println("Chọn chức năng:");
                         choice2=input.nextLine();
                     }
-                    if(choice4.equals("1"))
+                    if(choice5.equals("1"))
                     {
                         teacherCodegymService.search();
                     }
-                    else if(choice4.equals("2"))
+                    else if(choice5.equals("2"))
                     {
                         studentCodeGymService.search();
                     }
