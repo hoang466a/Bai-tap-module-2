@@ -27,8 +27,8 @@ public class Booking {
                 "idboooking='" + idBoooking + '\'' +
                 ", firstday='" + firstDay + '\'' +
                 ", lastday='" + lastDay + '\'' +
-                ", idcustomer='" + idCustomer + '\'' +
-                ", typeservice='" + typeService + '\'' +
+                ", idcustomer='" + idCustomer.getId() + '\'' +
+                ", typeservice='" + typeService.getNameService() + '\'' +
                 '}';
     }
 
