@@ -181,7 +181,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 
-
     public void edit(){
         System.out.println("Enter customer id you want to edit: ");
         String fixId=input.nextLine();
@@ -214,7 +213,6 @@ public class CustomerServiceImpl implements CustomerService {
                 Customer customer=new Customer(customerId,customerName,customerDateOfBirth,customerGender,customerId,customerPhonenumber,customerEmail,customerType,customerAddress);
                 customers.add(customer);
             }
-
 
 
     }

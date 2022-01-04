@@ -1,22 +1,23 @@
 package FuramaResort.models;
 
+import FuramaResort.models.falicity.Facility;
+import FuramaResort.models.person.Customer;
+
 public class Booking {
-    private String idBoooking;
+    private int idBoooking;
     private String firstDay;
     private String lastDay;
-    private String idCustomer;
-    private String nameService;
-    private String typeService;
+    private Customer idCustomer;
+    private Facility typeService;
 
 
     public Booking(){};
 
-    public Booking(String idboooking, String firstday, String lastday, String idcustomer, String nameservice, String typeservice) {
+    public Booking(int idboooking, String firstday, String lastday, Customer idcustomer, Facility typeservice) {
         this.idBoooking = idboooking;
         this.firstDay = firstday;
         this.lastDay = lastday;
         this.idCustomer = idcustomer;
-        this.nameService = nameservice;
         this.typeService = typeservice;
     }
 
@@ -27,16 +28,15 @@ public class Booking {
                 ", firstday='" + firstDay + '\'' +
                 ", lastday='" + lastDay + '\'' +
                 ", idcustomer='" + idCustomer + '\'' +
-                ", nameservice='" + nameService + '\'' +
                 ", typeservice='" + typeService + '\'' +
                 '}';
     }
 
-    public String getIdBoooking() {
+    public int getIdBoooking() {
         return idBoooking;
     }
 
-    public void setIdBoooking(String idBoooking) {
+    public void setIdBoooking(int idBoooking) {
         this.idBoooking = idBoooking;
     }
 
@@ -56,27 +56,19 @@ public class Booking {
         this.lastDay = lastDay;
     }
 
-    public String getIdCustomer() {
+    public Customer getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(String idCustomer) {
+    public void setIdCustomer(Customer idCustomer) {
         this.idCustomer = idCustomer;
     }
 
-    public String getNameService() {
-        return nameService;
-    }
-
-    public void setNameService(String nameService) {
-        this.nameService = nameService;
-    }
-
-    public String getTypeService() {
+    public Facility getTypeService() {
         return typeService;
     }
 
-    public void setTypeService(String typeService) {
+    public void setTypeService(Facility typeService) {
         this.typeService = typeService;
     }
 

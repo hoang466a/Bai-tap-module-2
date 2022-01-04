@@ -164,10 +164,12 @@ public class FuramaController {
                 switch(choice4){
                     case 1:
                     {
+                        bookingService.add();
                         break;
                     }
                     case 2:
                     {
+                        bookingService.display();
                         break;
                     }
                     case 3:

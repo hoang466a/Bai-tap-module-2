@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>
+
+		   Thực hành xây dựng bản vẽ use case - iviettech - iViettech
+	</title>
+
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    
+
+    <meta name="keywords" content="Lập trình viên, Lập trình Java, Lập trình .Net, Lập trình Web, PHP, MySQL, Lập trình di động, Android, iOS, mobile, tester, Kiểm thử phần mềm, thiết kế phần mềm, kỹ sư cầu nối, da nang, đà nẵng, học lập trình tại đà nẵng, hoc lap trinh tai da nang, nơi tốt nhất học lập trình tại đà nẵng, trung tâm đào tạo lập trình tại đà nẵng, đào tạo lập trình viên tại đà nẵng, việc làm CNTT tại đà nẵng, dạy lập trình tại đà nẵng" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="https://iviettech.vn/wp-content/themes/viettech/img/front/favicon.ico" type="image/x-icon" />
+
+    <link rel="shortcut icon" href="https://iviettech.vn/wp-content/themes/viettech/img/front/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Mitr|Roboto" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Arimo|Mitr|Quicksand:400,500" rel="stylesheet">-->
+
+    
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/bootstrap.min.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
+   
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/bootstrap-theme.min.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/icons.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/jquery.mmenu.all.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/common.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/ads.css?ver=1.0" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/font-awesome.min.css" type="text/css" media="screen" />
+
+    <!--[if lt IE 9]>
+
+       <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+
+    <![endif]-->
+
+    
+	<!-- This site is optimized with the Yoast SEO plugin v14.7 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Bài viết thực hành xây dựng bản vẽ use case nhằm giúp các bạn từng bước thực hành thiết kế kiến trúc, chức năng cho một hệ thống phần mềm." />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html" />
+	<meta property="og:locale" content="vi_VN" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Thực hành xây dựng bản vẽ use case - iviettech" />
+	<meta property="og:description" content="Bài viết thực hành xây dựng bản vẽ use case nhằm giúp các bạn từng bước thực hành thiết kế kiến trúc, chức năng cho một hệ thống phần mềm." />
+	<meta property="og:url" content="https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html" />
+	<meta property="og:site_name" content="iViettech" />
+	<meta property="article:publisher" content="https://www.facebook.com/iViettech.hoclaptrinh" />
+	<meta property="article:published_time" content="2014-06-28T11:00:40+00:00" />
+	<meta property="article:modified_time" content="2015-04-07T09:26:35+00:00" />
+	<meta property="og:image" content="https://iviettech.vn/wp-content/uploads/2015/03/ATM-Use-Case-Diagram.png" />
+	<meta property="og:image:width" content="387" />
+	<meta property="og:image:height" content="344" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://iviettech.vn/#website","url":"https://iviettech.vn/","name":"iViettech","description":"Trung t\u00e2m \u0111\u00e0o t\u1ea1o L\u1eadp tr\u00ecnh vi\u00ean chuy\u00ean nghi\u1ec7p | chuy\u00ean \u0111\u00e0o t\u1ea1o c\u00e1c kh\u00f3a  l\u1eadp tr\u00ecnh Java, .Net, Android, iOS, PHP, Tester","potentialAction":[{"@type":"SearchAction","target":"https://iviettech.vn/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"vi-VN"},{"@type":"ImageObject","@id":"https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html#primaryimage","inLanguage":"vi-VN","url":"https://iviettech.vn/wp-content/uploads/2015/03/ATM-Use-Case-Diagram.png","width":387,"height":344},{"@type":"WebPage","@id":"https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html#webpage","url":"https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html","name":"Th\u1ef1c h\u00e0nh x\u00e2y d\u1ef1ng b\u1ea3n v\u1ebd use case - iviettech","isPartOf":{"@id":"https://iviettech.vn/#website"},"primaryImageOfPage":{"@id":"https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html#primaryimage"},"datePublished":"2014-06-28T11:00:40+00:00","dateModified":"2015-04-07T09:26:35+00:00","author":{"@id":"https://iviettech.vn/#/schema/person/3da7e50d1b2c7a597af2ce5fdb311957"},"description":"B\u00e0i vi\u1ebft th\u1ef1c h\u00e0nh x\u00e2y d\u1ef1ng b\u1ea3n v\u1ebd use case nh\u1eb1m gi\u00fap c\u00e1c b\u1ea1n t\u1eebng b\u01b0\u1edbc th\u1ef1c h\u00e0nh thi\u1ebft k\u1ebf ki\u1ebfn tr\u00fac, ch\u1ee9c n\u0103ng cho m\u1ed9t h\u1ec7 th\u1ed1ng ph\u1ea7n m\u1ec1m.","inLanguage":"vi-VN","potentialAction":[{"@type":"ReadAction","target":["https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html"]}]},{"@type":["Person"],"@id":"https://iviettech.vn/#/schema/person/3da7e50d1b2c7a597af2ce5fdb311957","name":"iViettech Education","image":{"@type":"ImageObject","@id":"https://iviettech.vn/#personlogo","inLanguage":"vi-VN","url":"https://secure.gravatar.com/avatar/059218338594b46df50bffbcf11cb6c1?s=96&r=g","caption":"iViettech Education"},"description":"Trung t\u00e2m \u0111\u00e0o t\u1ea1o L\u1eadp tr\u00ecnh vi\u00ean chuy\u00ean nghi\u1ec7p"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/iviettech.vn\/wp-includes\/js\/wp-emoji-release.min.js?ver=21a42df349cbc3c3df247f410d7decdd"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-group-css' href='https://iviettech.vn/wp-content/plugins/bwp-minify/min/?f=wp-includes/css/dist/block-library/style.min.css,wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://iviettech.vn/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://iviettech.vn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://iviettech.vn/wp-json/' />
+<link rel='shortlink' href='https://iviettech.vn/?p=672' />
+<link rel="alternate" type="application/json+oembed" href="https://iviettech.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fiviettech.vn%2Fblog%2F672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html" />
+<link rel="alternate" type="text/xml+oembed" href="https://iviettech.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fiviettech.vn%2Fblog%2F672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html&#038;format=xml" />
+<meta property="fb:app_id" content="1623303634555501"/><meta property="fb:admins" content="1821859984,100003695029777,100004828155031"/>
+    <script type="text/javascript">var ajaxurl = 'https://iviettech.vn/wp-admin/admin-ajax.php';</script>	
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/developer.css?ver=v1.2.0.2" type="text/css" media="screen" />
+
+
+
+   <!--Start facebook new -->
+
+	<script>(function() {
+
+  var _fbq = window._fbq || (window._fbq = []);
+
+  if (!_fbq.loaded) {
+
+    var fbds = document.createElement('script');
+
+    fbds.async = true;
+
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+
+    var s = document.getElementsByTagName('script')[0];
+
+    s.parentNode.insertBefore(fbds, s);
+
+    _fbq.loaded = true;
+
+  }
+
+  _fbq.push(['addPixelId', '1457674844563367']);
+
+})();
+
+window._fbq = window._fbq || [];
+
+window._fbq.push(['track', 'PixelInitialized', {}]);
+
+</script>
+
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1457674844563367&amp;ev=PixelInitialized" /></noscript>
+
+   <!--End facebook new -->
+
+
+
+<!-- Google Code for Remarketing Tag -->
+
+<script type="text/javascript">
+
+/* <![CDATA[ */
+
+var google_conversion_id = 983244038;
+
+var google_custom_params = window.google_tag_params;
+
+var google_remarketing_only = true;
+
+/* ]]> */
+
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+
+</script>
+
+<noscript>
+
+<div style="display:inline;">
+
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/983244038/?value=0&amp;guid=ON&amp;script=0"/>
+
+</div>
+
+</noscript>
+
+
+    <link rel="stylesheet" href="https://iviettech.vn/wp-content/themes/viettech/css/mobile-responsive.css?ver=v1.2.0.2" type="text/css" media="screen" />  
+
+	<!-- Global site tag (gtag.js) - Google Ads: 983244038 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-983244038"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-983244038');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4W4CLT');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+
+
+<body class="cls-mobile-mode">
+
+    <div id="vt-page-layout">
+
+      <div class="wd-loading"><span>&nbsp;</span></div>
+
+      <div id="menu-left-device">
+
+        <div class="menu-mainmenu-container"><ul id="menu-mainmenu" class="vt-dropdownMenu"><li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-8"><a href="https://iviettech.vn/">Trang chủ</a></li>
+<li id="menu-item-10" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-10"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao">Các khóa học lập trình</a>
+<ul class="sub-menu">
+	<li id="menu-item-8377" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8377"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/chuyen-nghiep">Chuyên nghiệp</a>
+	<ul class="sub-menu">
+		<li id="menu-item-446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-446"><a href="https://iviettech.vn/chuong-trinh-dao-tao/43-lap-trinh-android.html">Lập Trình Android</a></li>
+		<li id="menu-item-451" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-451"><a href="https://iviettech.vn/chuong-trinh-dao-tao/5852-lap-trinh-ios-swift.html">Lập trình iOS &#8211; Swift</a></li>
+		<li id="menu-item-447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-447"><a href="https://iviettech.vn/chuong-trinh-dao-tao/48-software-testing.html">Kiểm thử chuyên nghiệp</a></li>
+		<li id="menu-item-443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-443"><a href="https://iviettech.vn/chuong-trinh-dao-tao/28-lap-trinh-php-mysql.html">Lập Trình PHP &#038; Laravel</a></li>
+		<li id="menu-item-11228" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-11228"><a href="https://iviettech.vn/chuong-trinh-dao-tao/chuyen-nghiep/11225-lap-trinh-node-js.html">Lập trình Node.js</a></li>
+		<li id="menu-item-8379" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8379"><a href="https://iviettech.vn/chuong-trinh-dao-tao/chuyen-nghiep/8373-lap-trinh-front-end.html">Lập trình Front End- New</a></li>
+		<li id="menu-item-444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-444"><a href="https://iviettech.vn/chuong-trinh-dao-tao/35-lap-trinh-java.html">Lập Trình Java từ A-Z</a></li>
+		<li id="menu-item-445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-445"><a href="https://iviettech.vn/chuong-trinh-dao-tao/38-lap-trinh-net.html">Lập Trình .NET từ A-Z</a></li>
+		<li id="menu-item-448" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-448"><a href="https://iviettech.vn/chuong-trinh-dao-tao/54-lap-trinh-vien-chuyen-nghiep.html">Lập trình viên chuyên nghiệp</a></li>
+	</ul>
+</li>
+	<li id="menu-item-10697" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-10697"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/chuyen_sau">Chuyên sâu</a>
+	<ul class="sub-menu">
+		<li id="menu-item-10693" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-10693"><a href="https://itexpert.vn/khoa-hoc/phan-tich-nghiep-vu-chuyen-nghiep.html">Phân tích nghiệp vụ (BA)</a></li>
+		<li id="menu-item-10692" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-10692"><a href="https://itexpert.vn/khoa-hoc/ky-su-tri-tue-nhan-tao.html">Kỹ sư trí tuệ nhân tạo</a></li>
+		<li id="menu-item-10691" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-10691"><a href="https://itexpert.vn/khoa-hoc/devops-beginner.html">DevOps Engineer</a></li>
+	</ul>
+</li>
+	<li id="menu-item-10698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-10698"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/thiet_ke">Thiết kế đồ họa</a>
+	<ul class="sub-menu">
+		<li id="menu-item-9579" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-9579"><a target="_blank" rel="noopener noreferrer" href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-do-hoa.html#new_tab">Thiết kế đồ họa</a></li>
+		<li id="menu-item-9580" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-9580"><a target="_blank" rel="noopener noreferrer" href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-ui-ux.html#new_tab">Thiết kế UI/UX</a></li>
+		<li id="menu-item-10695" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-10695"><a href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-noi-that.html">Thiết kế nội thất</a></li>
+		<li id="menu-item-10694" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-10694"><a href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-3d-va-3d-animation.html">Thiết kế 3D &#038; 3D Animation</a></li>
+	</ul>
+</li>
+	<li id="menu-item-8376" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8376"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/cap-toc">Cấp tốc</a>
+	<ul class="sub-menu">
+		<li id="menu-item-4595" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4595"><a href="https://iviettech.vn/chuong-trinh-dao-tao/4958-lap-trinh-java-cap-toc-2.html">Lập trình Java &#8211; Cấp tốc</a></li>
+	</ul>
+</li>
+	<li id="menu-item-8378" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-8378"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/ngan-han">Các khóa khác</a>
+	<ul class="sub-menu">
+		<li id="menu-item-6995" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6995"><a href="https://iviettech.vn/chuong-trinh-dao-tao/5986-lap-trinh-co-ban.html">Lập trình cơ bản</a></li>
+		<li id="menu-item-10690" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-10690"><a href="https://caodangcntt.edu.vn/">Cao đẳng CNTT</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-4548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4548"><a title="Đăng ký học" href="https://iviettech.vn/dang-ky">Đăng ký học</a></li>
+<li id="menu-item-12" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12"><a href="https://iviettech.vn/category/viec-lam">Việc làm</a></li>
+<li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14"><a href="https://iviettech.vn/iviettech">iVietTech</a></li>
+<li id="menu-item-7619" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7619"><a href="https://iviettech.vn/trang-vang-hoc-vien">Trang vàng HV</a></li>
+<li id="menu-item-233" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-233"><a href="https://iviettech.vn/category/blog">Blog</a></li>
+</ul></div>
+        <!--
+
+        <ul>
+
+          <li><a class="vt-current" href="https://iviettech.vn">Trang chủ</a></li>
+
+          <li class="Selected">
+
+            <a href="#">Chương trình Đào Tạo</a>
+
+            <ul>
+
+              <li><a href="#">planning</a></li>
+
+              <li><a href="#">development</a></li>
+
+              <li><a href="#">maintaining</a></li>
+
+              <li><a href="#">integration</a></li>
+
+            </ul>
+
+          </li>
+
+          <li><a href="#">Tuyển Sinh</a></li>
+
+          <li><a href="#">Việc Làm</a></li>
+
+          <li><a href="#">Liên Hệ</a></li>
+
+          <li><a href="#">VietTech</a></li>
+
+        </ul>
+
+        -->
+
+      </div>
+
+      <!-- end Menu Reponsive -->
+
+      <div id="vt-wrapper">
+
+        <div class="container-fluid">
+
+          <div class="row-fluid">
+
+            <div id="vt-head-container">
+
+              <div class="vt-center">
+
+                <a href="#menu-left-device" class="nav-btn">&nbsp;</a>
+
+                <h1><a href="https://iviettech.vn" id="logo">VietTech</a></h1>
+
+                <div class="click-here"><a href="#" class="vt-search">&nbsp;</a></div>
+
+                <div class="wd-form-search">
+
+                   <form action="https://iviettech.vn" id="searchform" method="GET">
+   <fieldset id="wd-header-search">	
+      <div class="wd-input">
+         <input type="text" placeholder="Nhập thông tin cần tìm..." value="" name="s" id="s" />
+      </div>
+      <div class="wd-submit-search">
+         <input type="submit" value="Tìm kiếm"/>
+      </div>
+   </fieldset>
+</form>
+
+                  
+
+                </div>
+
+                <div class="vt-nav">
+
+                  <div class="menu-mainmenu-container"><ul id="menu-mainmenu-1" class="vt-dropdownMenu"><li class="main-menu-item  menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-id-8"><a href="https://iviettech.vn/" class="menu-link main-menu-link">Trang chủ<i class="iconmuch-arrow">&nbsp;</i></a></li>
+<li class="main-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-id-10"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao" class="menu-link main-menu-link">Các khóa học lập trình<i class="iconmuch-arrow">&nbsp;</i></a>
+<ul class="tientn sub-menu menu-odd  menu-depth-1">
+	<li class="sub-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-id-8377"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/chuyen-nghiep" class="menu-link sub-menu-link">Chuyên nghiệp</a>
+	<ul class="tientn sub-menu menu-even sub-sub-menu menu-depth-2">
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-446"><a href="https://iviettech.vn/chuong-trinh-dao-tao/43-lap-trinh-android.html" class="menu-link sub-menu-link">Lập Trình Android</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-451"><a href="https://iviettech.vn/chuong-trinh-dao-tao/5852-lap-trinh-ios-swift.html" class="menu-link sub-menu-link">Lập trình iOS &#8211; Swift</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-447"><a href="https://iviettech.vn/chuong-trinh-dao-tao/48-software-testing.html" class="menu-link sub-menu-link">Kiểm thử chuyên nghiệp</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-443"><a href="https://iviettech.vn/chuong-trinh-dao-tao/28-lap-trinh-php-mysql.html" class="menu-link sub-menu-link">Lập Trình PHP &#038; Laravel</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-11228"><a href="https://iviettech.vn/chuong-trinh-dao-tao/chuyen-nghiep/11225-lap-trinh-node-js.html" class="menu-link sub-menu-link">Lập trình Node.js</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-8379"><a href="https://iviettech.vn/chuong-trinh-dao-tao/chuyen-nghiep/8373-lap-trinh-front-end.html" class="menu-link sub-menu-link">Lập trình Front End- New</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-444"><a href="https://iviettech.vn/chuong-trinh-dao-tao/35-lap-trinh-java.html" class="menu-link sub-menu-link">Lập Trình Java từ A-Z</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-445"><a href="https://iviettech.vn/chuong-trinh-dao-tao/38-lap-trinh-net.html" class="menu-link sub-menu-link">Lập Trình .NET từ A-Z</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-448"><a href="https://iviettech.vn/chuong-trinh-dao-tao/54-lap-trinh-vien-chuyen-nghiep.html" class="menu-link sub-menu-link">Lập trình viên chuyên nghiệp</a></li>
+	</ul>
+</li>
+	<li class="sub-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-id-10697"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/chuyen_sau" class="menu-link sub-menu-link">Chuyên sâu</a>
+	<ul class="tientn sub-menu menu-even sub-sub-menu menu-depth-2">
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-10693"><a href="https://itexpert.vn/khoa-hoc/phan-tich-nghiep-vu-chuyen-nghiep.html" class="menu-link sub-menu-link">Phân tích nghiệp vụ (BA)</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-10692"><a href="https://itexpert.vn/khoa-hoc/ky-su-tri-tue-nhan-tao.html" class="menu-link sub-menu-link">Kỹ sư trí tuệ nhân tạo</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-10691"><a href="https://itexpert.vn/khoa-hoc/devops-beginner.html" class="menu-link sub-menu-link">DevOps Engineer</a></li>
+	</ul>
+</li>
+	<li class="sub-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-id-10698"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/thiet_ke" class="menu-link sub-menu-link">Thiết kế đồ họa</a>
+	<ul class="tientn sub-menu menu-even sub-sub-menu menu-depth-2">
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-9579"><a target="_blank" href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-do-hoa.html#new_tab" class="menu-link sub-menu-link">Thiết kế đồ họa</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-9580"><a target="_blank" href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-ui-ux.html#new_tab" class="menu-link sub-menu-link">Thiết kế UI/UX</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-10695"><a href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-noi-that.html" class="menu-link sub-menu-link">Thiết kế nội thất</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-10694"><a href="https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-3d-va-3d-animation.html" class="menu-link sub-menu-link">Thiết kế 3D &#038; 3D Animation</a></li>
+	</ul>
+</li>
+	<li class="sub-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-id-8376"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/cap-toc" class="menu-link sub-menu-link">Cấp tốc</a>
+	<ul class="tientn sub-menu menu-even sub-sub-menu menu-depth-2">
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-4595"><a href="https://iviettech.vn/chuong-trinh-dao-tao/4958-lap-trinh-java-cap-toc-2.html" class="menu-link sub-menu-link">Lập trình Java &#8211; Cấp tốc</a></li>
+	</ul>
+</li>
+	<li class="sub-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-id-8378"><a href="https://iviettech.vn/category/chuong-trinh-dao-tao/ngan-han" class="menu-link sub-menu-link">Các khóa khác</a>
+	<ul class="tientn sub-menu menu-even sub-sub-menu menu-depth-2">
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-id-6995"><a href="https://iviettech.vn/chuong-trinh-dao-tao/5986-lap-trinh-co-ban.html" class="menu-link sub-menu-link">Lập trình cơ bản</a></li>
+		<li class="sub-menu-item sub-sub-menu-item menu-item menu-item-type-post_type menu-item-object-post menu-id-10690"><a href="https://caodangcntt.edu.vn/" class="menu-link sub-menu-link">Cao đẳng CNTT</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-id-4548"><a title="Đăng ký học" href="https://iviettech.vn/dang-ky" class="menu-link main-menu-link">Đăng ký học<i class="iconmuch-arrow">&nbsp;</i></a></li>
+<li class="main-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category menu-id-12"><a href="https://iviettech.vn/category/viec-lam" class="menu-link main-menu-link">Việc làm<i class="iconmuch-arrow">&nbsp;</i></a></li>
+<li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-id-14"><a href="https://iviettech.vn/iviettech" class="menu-link main-menu-link">iVietTech<i class="iconmuch-arrow">&nbsp;</i></a></li>
+<li class="main-menu-item  menu-item menu-item-type-post_type menu-item-object-page menu-id-7619"><a href="https://iviettech.vn/trang-vang-hoc-vien" class="menu-link main-menu-link">Trang vàng HV<i class="iconmuch-arrow">&nbsp;</i></a></li>
+<li class="main-menu-item  menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-id-233"><a href="https://iviettech.vn/category/blog" class="menu-link main-menu-link">Blog<i class="iconmuch-arrow">&nbsp;</i></a></li>
+</ul></div>                                    
+
+                </div>							
+
+              </div>
+
+            </div>
+
+            
+
+<style>    .list_carousel li {min-height: 70px;}       li.depth-1{min-width: 655px;}</style><div id="vt-content-container">    <div class="vt-center">																			        <div class="row-fluid">            <div class="vt-main-content span8">                <div class="vt-title">                    <h2 class="wd-tlh2-1 vt-black">                        <a href="https://iviettech.vn/category/blog">                            <span class="vt-circle bgColor-4"><i class="iconmuch-lcs">&nbsp;</i></span>                            <span class="vt-color-red">Blog</span>                             <span class="vt-speacial">Nơi chia sẻ kiến thức, kinh nghiệm về học lập trình.</span>                        </a>                    </h2>								                </div>	                                         <div class="vt-top-title">	                            <h2 class="wd-tlh2-5"><a href="https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html">3. Case Study: Thực hành xây dựng bản vẽ Use Case</a></h2>                            <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Thứ Bảy, 28/06/2014</p>                        </div>                        <div class="wd-detail-article">                            <div class="content" id="wd-scroll-1">                                <p><strong>Chúng ta đã hiểu được các thành phần cấu tạo, cách xây dựng và sử dụng của bản vẽ Use Case ở bài trước. Trong bài này, chúng ta sẽ tiến hành thực tập để xây dựng bản vẽ này cho một hệ thống cụ thể nhằm giúp bạn nắm rõ hơn về bản vẽ này.</strong></p>
+<p>&nbsp;</p>
+<h3><b>Case Study – Yêu cầu của bài thực hành</b></h3>
+<p>Yêu cầu xây dựng một hệ thống thương mại điện tử (E-Commerce) như sau:</p>
+<p>“Công ty Hi-Tech là một công ty chuyên kinh doanh về các thiết bị điện tử và công nghệ thông tin trong nhiều năm nay và đã có một lượng khách hàng nhất định.</p>
+<p>Để mở rộng hoạt động kinh doanh của mình, công ty mong muốn xây dựng một hệ thống thương mại điện tử nhằm mở rộng phạm vi kinh doanh trên mạng Internet.</p>
+<p>Hệ thống mới phải đảm bảo cho khách hàng viếng thăm Website dễ dàng lựa chọn các sản phẩm, xem các khuyến mãi cũng như mua hàng. Việc thanh toán có thể được thực hiện qua mạng hoặc thanh toán trực tiếp tại cửa hàng. Khách hàng có thể nhận hàng tại cửa hàng hoặc sử dụng dịch vụ chuyển hàng có phí của công ty.</p>
+<p>Ngoài ra, hệ thống cũng cần có phân hệ để đảm bảo cho công ty quản lý các hoạt động kinh doanh như số lượng hàng có trong kho, quản lý đơn đặt hàng, tình trạng giao hàng, thanh toán v.v…</p>
+<p>Thông tin chi tiết các chức năng các bạn có thể tham khảo thêm tại: <a href="http://www.bkc.vn">http://www.bkc.vn</a></p>
+<p>Bạn hãy giúp công ty Hi-Tech xây dựng hệ thống trên.”</p>
+<p>Case Study này sẽ được sử dụng xuyên suốt các bài viết để giúp các bạn dễ hiểu và dễ thực tập.</p>
+<p><b> </b></p>
+<h3><b>Các bước xây dựng bản vẽ Use Case</b></h3>
+<h4><b>Bước 1</b>: <b>Thu thập kiến thức liên quan đến hệ thống sẽ xây dựng</b></h4>
+<p>Trước hết, để phân tích hệ thống trên bạn phải có kiến thức về hệ thống thương mại điện tử, chúng ta có thể tìm hiểu thông qua các nguồn sau:</p>
+<p>&#8211;          Xem các trang Web bán hàng qua mạng như amazon, lazada.vn, bkc.vn v.v..</p>
+<p>&#8211;          Xem các hệ thống mẫu về thương mại điện tử nguồn mở như Magento, OpenCart, Spree Commerce v.v…</p>
+<p>&#8211;          Đọc sách, báo về eCommerce</p>
+<p>&#8211;          Hỏi những người chuyên về lĩnh vực này (hỏi chuyên gia)</p>
+<p><b>Lưu ý</b>: Bạn không thể thiết kế tốt được nếu bạn không có kiến thức về lĩnh vực của sản phẩm mà bạn sẽ xây dựng.</p>
+<p><b> </b></p>
+<h4><b>Bước 2</b>:<b> Xác định các Actor</b></h4>
+<p><b><i>Bạn hãy trả lời cho câu hỏi “Ai sử dụng hệ thống này?”</i></b></p>
+<p>Xem xét Website chúng ta nhận thấy:</p>
+<p>&#8211;          Những người muốn mua hàng vào website để xem thông tin. Những người này là <b>Khách hàng tiềm năng (Guest)</b>.</p>
+<p>&#8211;          Những người đã đặt hàng vào kiểm tra đơn hàng, thanh toán v.v.. gọi là <b>Khách hàng (Customer)</b>.</p>
+<p>Về phía đơn vị bán hàng, có những người sau đây tham gia vào hệ thống:</p>
+<p>&#8211;          <b>Người quản lý bán hàng</b>: quyết định nhập hàng, giá bán, quản lý tồn kho, doanh thu, chính sách khuyến mãi.</p>
+<p>&#8211;          <b>Người bán hàng</b>: Tư vấn cho khách hàng, theo dõi đơn hàng, thu tiền, theo dõi chuyển hàng cho khách.</p>
+<p>&#8211;          <b>Quản lý kho</b>: xuất, nhập hàng, quản lý tồn kho</p>
+<p>&#8211;          <b>Quản trị hệ thống</b>: Tạo người dùng, Phân quyền, Tạo cửa hàng</p>
+<p><b><i>Tiếp theo chúng ta trả lời câu hỏi “Hệ thống nào tương tác với hệ thống này?”</i></b></p>
+<p>Giả sử ở đây, chúng ta sử dụng dịch vụ của Ngân Lượng để thanh toán trực tuyến và gọi nó là “<b>Cổng thanh toán</b>” thì ta có thêm một Actor tương tác với hệ thống.</p>
+<p>Như vậy, chúng ta đã có các Actor của hệ thống gồm: <b>Khách hàng tiềm năng</b>, <b>khách hàng</b>, <b>Người bán hàng</b>,  <b>Quản lý Kho</b>,  <b>Quản trị hệ thống, Cổng thanh toán</b></p>
+<p>Bạn cần khảo sát và phân tích thêm cũng như hỏi trực tiếp khách hàng để xác định đầy đủ các Actor cho hệ thống.</p>
+<p>&nbsp;</p>
+<h4><b>Bước 3</b>:<b> Xác định Use Case </b></h4>
+<p>Bạn cần trả lời câu hỏi “Actor sử dụng chức năng gì trên hệ thống?”.</p>
+<p>Trước tiên, xem xét với Actor “<b>Khách hàng tiềm năng</b>” trên trang bkc.vn để xem họ sử dụng chức năng nào?</p>
+<p>&#8211;          Xem trang chủ</p>
+<p>&#8211;          Xem các sản phẩm theo:</p>
+<p>+ Theo chủng loại</p>
+<p>+ Nhà  sản xuất</p>
+<p>+ Tìm kiếm theo văn bản gõ vào</p>
+<p>&#8211;          Xem chi tiết sản phẩm được chọn</p>
+<p>&#8211;          Xem khuyến mãi</p>
+<p>&#8211;          Xem so sánh</p>
+<p>&#8211;          Mua hàng</p>
+<p>&#8211;          Quản lý giỏ hàng</p>
+<p>&#8211;          Chat với người bán hàng</p>
+<p>&#8211;          Đăng ký tài khoản để trở thành khách hàng</p>
+<p>Tiếp theo, xem xét Actor “<b>Khách hàng</b>” và nhận thấy họ sử dụng chức năng:</p>
+<p>&#8211;          Đăng nhập</p>
+<p>&#8211;          Xem đơn hàng</p>
+<p>&#8211;          Thanh toán</p>
+<p>Tiếp theo, xem xét Actor “<b>Người bán hàng</b>” và họ có thể sử dụng các chức năng:</p>
+<p>&#8211;          Đăng nhập</p>
+<p>&#8211;          Chat với khách hàng</p>
+<p>&#8211;          Theo dõi đơn hàng</p>
+<p>&#8211;          Thu tiền</p>
+<p>&#8211;          Theo dõi chuyển hàng</p>
+<p>Tương tự như vậy bạn xác định chức năng cho các Actor còn lại.</p>
+<p>&nbsp;</p>
+<h4><b>Bước 4</b>:<b> Vẽ bản vẽ Use Case</b></h4>
+<p>Trước hết chúng ta xem xét và phân tích các chức năng của “Khách hàng tiềm năng” chúng ta nhận thấy.</p>
+<p>&#8211;          Chức năng xem sản phẩm có 2 cách là chọn loại sản phẩm, nhà sản xuất để xem và gõ vào ô tìm kiếm. Nên chúng ta tách ra làm 2 là <i>Xem sản phẩm </i>và <i>Tìm kiếm</i>.</p>
+<p>&#8211;          Chức năng mua hàng, thực chất là thêm vào giỏ hàng nên có thể xem là chức năng con của quản lý giỏ hàng.</p>
+<p>Đặt lại tên cho gọn và xác định các mối quan hệ của chúng, chúng ta có thể vẽ Use Case Diagram cho Actor này như sau:</p>
+<p><a href="http://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram1.jpg"><img class="aligncenter size-full wp-image-673" src="http://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram1.jpg" alt="Use Case Diagram " width="628" height="364" srcset="https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram1.jpg 628w, https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram1-150x86.jpg 150w, https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram1-300x173.jpg 300w" sizes="(max-width: 628px) 100vw, 628px" /></a></p>
+<p><b>Hình 1. Bản vẽ Use Case cho Actor “Khách hàng tìm năng”</b></p>
+<p>Tiếp theo, chúng xem xét các chức năng cho Actor “Khách hàng” và nhận thấy chức năng “Thanh toán” thường thực hiện cho từng đơn hàng cụ thể nên có thể nó là chức năng con của “Quản lý đơn hàng”. Ngoài ra, các chức năng Actor này sử dụng không giao với Actor “Khách hàng tiềm năng” nên nó được biểu diễn như sau:</p>
+<p><a href="http://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram2.png"><img class="aligncenter size-full wp-image-674" src="http://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram2.png" alt="UseCase Diagram 2" width="533" height="158" srcset="https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram2.png 533w, https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram2-150x44.png 150w, https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram2-300x88.png 300w" sizes="(max-width: 533px) 100vw, 533px" /></a></p>
+<p><b>Hình 2. Bản vẽ Use Case cho Actor “Khách hàng”</b></p>
+<p>Tiếp tục xem xét Actor “Người bán hàng” chúng ta nhận thấy:</p>
+<p>&#8211;          Chức năng “Thu tiền” thực tế là thanh toán trực tiếp tại quày cho từng đơn hàng và chức năng “Theo dõi chuyển hàng” được thực hiện trên từng đơn hàng nên nó có thể là chức năng con của “Quản lý đơn hàng”.</p>
+<p>&#8211;          Chức năng “Quản lý đơn hàng” ở đây quản lý cho nhiều khách hàng nên sẽ khác với chức năng “Quản lý đơn hàng” của Actor “Khách hàng” nên để phân biệt chúng ta sửa chức năng “Quản lý đơn hàng ” của Actor “Khách hàng” thành “Quản lý đơn hàng cá nhân”</p>
+<p>&#8211;          Chức năng “Đăng nhập” có thể dùng chung với Actor “Khách hàng”, chức năng Chat dùng chung với Actor “Khách hàng tiềm năng”</p>
+<p>Vẽ chúng chung với nhau chúng ta được bản vẽ như sau:</p>
+<p><a href="http://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram3.png"><img class="aligncenter size-full wp-image-675" src="http://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram3.png" alt="Use Case Diagram 3" width="628" height="567" srcset="https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram3.png 628w, https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram3-150x135.png 150w, https://iviettech.vn/wp-content/uploads/2014/02/UseCaseDiagram3-300x270.png 300w" sizes="(max-width: 628px) 100vw, 628px" /></a></p>
+<p><b>Hình 2. Bản vẽ Use Case khi bổ sung các chức năng cho “Khách hàng tiềm năng”, “Khách hàng” và “Người bán hàng”</b></p>
+<p>Các bạn hãy tiếp tục hoàn tất các chức năng cho các Actor còn lại để có một bản vẽ hoàn chỉnh về Use Case cho hệ thống.</p>
+<p>&nbsp;</p>
+<h3><b>Kết luận</b></h3>
+<p>Như vậy, chúng ta đã thực hành việc xây dựng bản vẽ Use Case cho hệ thống eCommerce. Hy vọng, các bạn có thể hiểu và sử dụng bản vẽ này trong việc phân tích hệ thống một cách hiệu quả.</p>
+<p>Trong bài tiếp theo chúng ta sẽ tìm hiểu về Class Diagram, một bản vẽ cơ sở rất quan trọng nữa trong việc phân tích và thiết kế hệ thống.</p>
+<p>&nbsp;</p>
+<p><strong>Bài tiếp</strong>: <strong><a title="bản vẽ sơ đồ lớp" href="813-classs-diagarm-ban-ve-ve-classlop.html">Bản vẽ sơ đồ lớp (Class Diagram)</a></strong></p>
+<p><strong>Bài trước</strong>: <strong><a title="Bản vẽ Use Case" href="543-ban-ve-use-case-use-case-diagram.html">Bản vẽ Use Case</a></strong></p>
+												                            </div>	                        </div>	                        <div class="vt-communicate clearfix">	                            <ul>                                <li style="margin-top:9px !important">                                                                        <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>                                    <!--end container-->                                    <div id="fb-root"></div>                                    <script>(function (d, s, id) {                                            var js, fjs = d.getElementsByTagName(s)[0];                                            if (d.getElementById(id))                                                return;                                            js = d.createElement(s);                                            js.id = id;                                            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";                                            fjs.parentNode.insertBefore(js, fjs);                                        }(document, 'script', 'facebook-jssdk'));</script>                                </li>                            </ul>                                            <div class="cls-block-socical-comment">
+    <!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>Comments</h3><div class="fb-comments" data-href="https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html" data-numposts="5" data-width="100%" data-colorscheme="light"></div></div>
+<style>
+  .fb_iframe_widget_fluid_desktop iframe{
+      min-width: 100% !important;
+  }
+</style>                    <div class="vt-appreciate bg-shadown">                    </div>                    <div class="vt-title vt-other-actical">                        <div class="vt-title bg-shadown">                            <h2 class="wd-tlh2-1 vt-black">                                <a href="#">                                    <span>Các Bài Viết Khác</span>                                 </a>                            </h2>                            <div class="control-div">                                <span id="wd-prev-5" class="">&nbsp;</span>                                <span id="wd-next-5" class="">&nbsp;</span>                            </div>									                        </div>                        <div class="vt-main-news">                            <div class="list_carousel responsive">                                <ul class="vt-list-category cls-listing" id="vt-jcar-news">                                                                                                                        <li class="cls-no-border-top">                                                <ol>                                                                                                <li class="cls-item cls-has-bottom-border">                                                    <a href="https://iviettech.vn/blog/hot-or-not/7574-co-nen-chuyen-sang-nghe-lap-trinh-khong.html"><img src="https://iviettech.vn/wp-content/uploads/2017/01/Lap-trinh-vien.jpg" alt="Có nên chuyển sang nghề Lập trình không?" title="Có nên chuyển sang nghề Lập trình không?" width="97" height="73" /></a>                                                    <h4><a href="https://iviettech.vn/blog/hot-or-not/7574-co-nen-chuyen-sang-nghe-lap-trinh-khong.html">Có nên chuyển sang nghề Lập trình không?</a></h4>                                                    <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Thứ Sáu, 16/07/2021</p>                                                </li>                                                                                                                                                                                                            <li class="cls-item cls-has-bottom-border">                                                    <a href="https://iviettech.vn/viettech/10893-xu-huong-cong-nghe-lap-trinh-2021.html"><img src="https://iviettech.vn/wp-content/uploads/2021/01/Xu-huong-2021.jpg" alt="Xu hướng công nghệ lập trình 2021" title="Xu hướng công nghệ lập trình 2021" width="97" height="73" /></a>                                                    <h4><a href="https://iviettech.vn/viettech/10893-xu-huong-cong-nghe-lap-trinh-2021.html">Xu hướng công nghệ lập trình 2021</a></h4>                                                    <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Thứ Năm, 15/07/2021</p>                                                </li>                                                                                                                            </ol>                                            </li>                                                                                                                                                                    <li class="cls-no-border-top">                                                <ol>                                                                                                <li class="cls-item cls-has-bottom-border">                                                    <a href="https://iviettech.vn/blog/hoc_thuat_toan/10915-co-ban-ve-thuat-toan-giup-ban-hoc-thuat-toan-don-gian-hon.html"><img src="https://iviettech.vn/wp-content/uploads/2021/05/iViettech-Hoc-thuat-toan.jpg" alt="Cơ bản về thuật toán &#8211; Giúp bạn học thuật toán đơn giản hơn" title="Cơ bản về thuật toán &#8211; Giúp bạn học thuật toán đơn giản hơn" width="97" height="73" /></a>                                                    <h4><a href="https://iviettech.vn/blog/hoc_thuat_toan/10915-co-ban-ve-thuat-toan-giup-ban-hoc-thuat-toan-don-gian-hon.html">Cơ bản về thuật toán &#8211; Giúp bạn học thuật toán đơn giản hơn</a></h4>                                                    <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Chủ Nhật, 16/05/2021</p>                                                </li>                                                                                                                                                                                                            <li class="cls-item cls-has-bottom-border">                                                    <a href="https://iviettech.vn/blog/hoc_thuat_toan/10922-cac-thuat-toan-ve-so-hoc-bai-1.html"><img src="https://iviettech.vn/wp-content/uploads/2021/05/iViettech-Hoc-thuat-toan.jpg" alt="[Số học] – Các thuật toán về số học" title="[Số học] – Các thuật toán về số học" width="97" height="73" /></a>                                                    <h4><a href="https://iviettech.vn/blog/hoc_thuat_toan/10922-cac-thuat-toan-ve-so-hoc-bai-1.html">[Số học] – Các thuật toán về số học</a></h4>                                                    <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Chủ Nhật, 16/05/2021</p>                                                </li>                                                                                                                            </ol>                                            </li>                                                                                                                                                                    <li class="cls-no-border-top">                                                <ol>                                                                                                <li class="cls-item cls-has-bottom-border">                                                    <a href="https://iviettech.vn/blog/hoc_thuat_toan/10937-thuat-toan-tinh-tong-mot-day-so.html"><img src="https://iviettech.vn/wp-content/uploads/2021/05/iViettech-Hoc-thuat-toan.jpg" alt="[Số học] – Thuật toán tính tổng một dãy số" title="[Số học] – Thuật toán tính tổng một dãy số" width="97" height="73" /></a>                                                    <h4><a href="https://iviettech.vn/blog/hoc_thuat_toan/10937-thuat-toan-tinh-tong-mot-day-so.html">[Số học] – Thuật toán tính tổng một dãy số</a></h4>                                                    <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Chủ Nhật, 16/05/2021</p>                                                </li>                                                                                                                                                                                                            <li class="cls-item cls-has-bottom-border">                                                    <a href="https://iviettech.vn/blog/hoc_thuat_toan/10941-thuat-toan-ve-day-so-fibonacci.html"><img src="https://iviettech.vn/wp-content/uploads/2021/05/iViettech-Hoc-thuat-toan.jpg" alt="[Số học] – Thuật toán về dãy số Fibonacci" title="[Số học] – Thuật toán về dãy số Fibonacci" width="97" height="73" /></a>                                                    <h4><a href="https://iviettech.vn/blog/hoc_thuat_toan/10941-thuat-toan-ve-day-so-fibonacci.html">[Số học] – Thuật toán về dãy số Fibonacci</a></h4>                                                    <p class="vt-date"><i class="iconmuch-date">&nbsp;</i>Chủ Nhật, 16/05/2021</p>                                                </li>                                                                                                                            </ol>                                            </li>                                                                                                                </ul>                            </div>                        </div>									                    </div>									                </div>            </div>            <div class="vt-right-content span4">                ﻿<!-- START left_blog --><div class="vt-bag">   <div class="vt-aside">      <div class="vt-dashed vt-dashed-two">         <div class="wd-detail-article">													            <div class="vt-img-content">               <a href="https://iviettech.vn/iviettech"><img src="https://iviettech.vn/wp-content/themes/viettech/img/images/img-blog.jpg" width="225" height="176" alt="" /></a>            </div>            <p>Blog này nhằm mục đích chia sẻ các kiến thức thực tế liên quan đến ngành công nghiệp phần mềm nhằm giúp các bạn trẻ định hướng tốt hơn trong việc chọn lựa nghề nghiệp của mình.  Chúng tôi rất mong nhận được sự đóng góp, chia sẽ của các anh chị có kinh nghiệm cũng như các bạn trẻ.</p>													         </div>	      </div>								   </div>   <div class="vt-title bg-shadown">      <h2 class="wd-tlh2-3 mt20">         <a href="https://iviettech.vn/category/blog">            <i class="iconmuch-blog-lar">&nbsp;</i>            <span>BLOG</span>          </a>      </h2>								   </div>      <h3 class="wd-tlh3-7"><a href="https://iviettech.vn/category/blog/hoc_thuat_toan"><i class="iconmuch-blog-min">&nbsp;</i>Học thuật toán</a></h3>   <div class="vt-scrum">											         <p class="vt-paragraph">Hướng dẫn học thuật toán</p>         <!-- <ul class="vt-list-basic">                                               <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10915-co-ban-ve-thuat-toan-giup-ban-hoc-thuat-toan-don-gian-hon.html">1. Cơ bản về thuật toán &#8211; Giúp bạn học thuật toán đơn giản hơn</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10922-cac-thuat-toan-ve-so-hoc-bai-1.html">2. [Số học] – Các thuật toán về số học</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10937-thuat-toan-tinh-tong-mot-day-so.html">3. [Số học] – Thuật toán tính tổng một dãy số</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10941-thuat-toan-ve-day-so-fibonacci.html">4. [Số học] – Thuật toán về dãy số Fibonacci</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10945-cac-thuat-toan-ve-vong-lap-long-nhau.html">5. [Số học] – Các thuật toán về vòng lặp lồng nhau</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10948-bai-tap-ve-thuat-toan-so-hoc.html">6. [Số học] – Bài tập về thuật toán số học</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/10950-cac-thuat-toan-ve-mang-mot-chieu.html">7. [Mảng một chiều] &#8211; Các thuật toán cơ bản về mảng một chiều</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/11018-mang-mot-chieu-tim-phan-tu-lon-nhat-trong-mang.html">8. [Mảng một chiều] &#8211; Tìm phần tử lớn nhất trong mảng</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/11021-mang-mot-chieu-sap-xep-cac-phan-tu-trong-mang.html">9. [Mảng một chiều] &#8211; Sắp xếp các phần tử trong mảng</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc_thuat_toan/11023-mang-mot-chieu-bai-tap.html">10. [Mảng một chiều] &#8211; Bài tập về mảng một chiều</a></li>                                       </ul> -->      </div>      <h3 class="wd-tlh3-7"><a href="https://iviettech.vn/category/blog/thiet-ke-co-so-du-lieu"><i class="iconmuch-blog-min">&nbsp;</i>Thiết kế Cơ sở dữ liệu</a></h3>   <div class="vt-scrum">											         <p class="vt-paragraph">Hướng dẫn thiết kế cơ sở dữ liệu.</p>         <!-- <ul class="vt-list-basic">                                               <li><a href="https://iviettech.vn/blog/thiet-ke-co-so-du-lieu/10569-co-so-du-lieu-la-gi-co-so-du-lieu-quan-he-la-gi.html">1. Cơ sở dữ liệu là gì? Cơ sở dữ liệu quan hệ là gì?</a></li>                                                  <li><a href="https://iviettech.vn/blog/10578-thiet-ke-co-so-du-lieu-cac-buoc-thuc-hien.html">2. Thiết kế cơ sở dữ liệu &#8211; Các bước thực hiện</a></li>                                                  <li><a href="https://iviettech.vn/blog/thiet-ke-co-so-du-lieu/10592-chuan-hoa-co-so-du-lieu.html">3. Chuẩn hóa cơ sở dữ liệu &#8211; bước quan trọng trong thiết kế CSDL</a></li>                                                  <li><a href="https://iviettech.vn/blog/thiet-ke-co-so-du-lieu/10606-van-de-du-thua-du-lieu-trong-thiet-ke-co-so-du-lieu.html">4. Vấn đề dư thừa dữ liệu trong thiết kế Cơ sở dữ liệu</a></li>                                                  <li><a href="https://iviettech.vn/blog/thiet-ke-co-so-du-lieu/10616-tao-co-so-du-lieu-thiet-ke-co-so-du-lieu.html">5. Tạo cơ sở dữ liệu – Thiết kế cơ sở dữ liệu</a></li>                                       </ul> -->      </div>      <h3 class="wd-tlh3-7"><a href="https://iviettech.vn/category/blog/hoc-lap-trinh"><i class="iconmuch-blog-min">&nbsp;</i>Học lập trình</a></h3>   <div class="vt-scrum">											         <p class="vt-paragraph">Hướng dẫn dành cho người mới học lập trình.</p>         <!-- <ul class="vt-list-basic">                                               <li><a href="https://iviettech.vn/tin-tuc/6046-iviettech-noi-tot-nhat-de-hoc-lap-trinh.html">1. iViettech nơi tốt nhất để học lập trình</a></li>                                                  <li><a href="https://iviettech.vn/blog/4653-cai-dat-ormobject-relational-mapping-tren-java.html">2. Cài đặt ORM(Object Relational Mapping) trên Java</a></li>                                                  <li><a href="https://iviettech.vn/blog/4632-cai-dat-mo-hinh-mvcmodel-view-controller-trong-java.html">3. Cài đặt mô hình MVC(Model – View &#8211; Controller) trong Java</a></li>                                                  <li><a href="https://iviettech.vn/blog/4247-hoc-lap-trinh-huong-doi-tuong-voi-java.html">4. Học lập trình hướng đối tượng với JAVA</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc-lap-trinh/3882-responsive-web-design-la-gi-tu-khai-niem-toi-thuc-te.html">5. Responsive Web Design là gì? Từ khái niệm tới thực tế</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc-lap-trinh/3830-co-ban-ve-css-cascading-style-sheet.html">6. Cơ bản về CSS (Cascading Style Sheet)</a></li>                                                  <li><a href="https://iviettech.vn/blog/3809-lam-quen-voi-html.html">7. Làm quen với HTML</a></li>                                                  <li><a href="https://iviettech.vn/blog/hoc-lap-trinh/3718-hoc-lap-trinh-web-nen-bat-dau-tu-dau.html">8. Học lập trình Web nên bắt đầu từ đâu?</a></li>                                       </ul> -->      </div>      <h3 class="wd-tlh3-7"><a href="https://iviettech.vn/category/blog/hot-or-not"><i class="iconmuch-blog-min">&nbsp;</i>Hot or Not</a></h3>   <div class="vt-scrum">											         <p class="vt-paragraph">Phân tích xu hướng công nghệ lập trình</p>         <!-- <ul class="vt-list-basic">                                               <li><a href="https://iviettech.vn/blog/hot-or-not/7574-co-nen-chuyen-sang-nghe-lap-trinh-khong.html">1. Có nên chuyển sang nghề Lập trình không?</a></li>                                                  <li><a href="https://iviettech.vn/viettech/10893-xu-huong-cong-nghe-lap-trinh-2021.html">2. Xu hướng công nghệ lập trình 2021</a></li>                                                  <li><a href="https://iviettech.vn/blog/10448-2020-hoc-lap-trinh-nen-hoc-gi.html">3. 2020 – Học lập trình nên học gì?</a></li>                                                  <li><a href="https://iviettech.vn/blog/10068-xu-huong-cong-nghe-lap-trinh-2019.html">4. Xu hướng công nghệ lập trình 2019</a></li>                                                  <li><a href="https://iviettech.vn/blog/9199-xu-huong-cong-nghe-lap-trinh-2018.html">5. Xu hướng công nghệ lập trình 2018</a></li>                                                  <li><a href="https://iviettech.vn/blog/hot-or-not/7570-ai-co-tro-thanh-lap-trinh-vien.html">6. Ai có thể trở thành Lập trình viên?</a></li>                                                  <li><a href="https://iviettech.vn/blog/hot-or-not/7562-sinh-vien-ban-can-gi-de-thanh-cong-trong-nganh-phan-mem.html">7. Sinh viên IT: Bạn cần gì để thành công trong ngành phần mềm?</a></li>                                                  <li><a href="https://iviettech.vn/blog/hot-or-not/7556-nganh-cong-nghiep-phan-mem-da-nang-nhu-cau-nhan-luc-rat-cao-nhung-sao-van-kho-tim-viec.html">8. Lập trình viên:  Nhu cầu rất cao nhưng sao sinh viên IT vẫn khó tìm việc</a></li>                                                  <li><a href="https://iviettech.vn/blog/7504-xu-huong-cong-nghe-lap-trinh-2017.html">9. Xu hướng Công nghệ lập trình 2017</a></li>                                                  <li><a href="https://iviettech.vn/blog/hot-or-not/6698-nhu-cau-nhan-luc-nganh-phan-mem-da-nang-6-thang-dau-nam-2016.html">10. Nhu cầu nhân lực ngành phần mềm Đà Nẵng: 6 tháng đầu năm 2016</a></li>                                       </ul> -->      </div>      <h3 class="wd-tlh3-7"><a href="https://iviettech.vn/category/blog/phan-tich-thiet-ke-he-thong"><i class="iconmuch-blog-min">&nbsp;</i>Phân tích thiết kế hệ thống</a></h3>   <div class="vt-scrum">											         <p class="vt-paragraph">Phân tích và thiết kế hệ thống phần mềm</p>         <!-- <ul class="vt-list-basic">                                               <li><a href="https://iviettech.vn/blog/302-ooaduml.html">1. 1. Cơ bản về Phân tích và thiết kế hướng đối tượng và UML</a></li>                                                  <li><a href="https://iviettech.vn/blog/543-ban-ve-use-case-use-case-diagram.html">2. 2. Bản vẽ Use Case (Use Case Diagram)</a></li>                                                  <li><a href="https://iviettech.vn/blog/672-case-study-thuc-hanh-xay-dung-ban-ve-use-case.html">3. 3. Case Study: Thực hành xây dựng bản vẽ Use Case</a></li>                                                  <li><a href="https://iviettech.vn/blog/813-classs-diagarm-ban-ve-ve-classlop.html">4. 4. Classs Diagarm: Bản vẽ về Class(lớp)</a></li>                                                  <li><a href="https://iviettech.vn/viettech/916-thuc-hanh-xay-dung-classs-diagarm.html">5. 5. Thực hành xây dựng Classs Diagarm</a></li>                                                  <li><a href="https://iviettech.vn/blog/1066-activity-diagram-ban-ve-hoat-dong.html">6. 6. Activity Diagram: Bản vẽ hoạt động</a></li>                                                  <li><a href="https://iviettech.vn/viettech/1081-thuc-hanh-xay-dung-activity-diagarm.html">7. 7. Thực hành xây dựng Activity Diagarm</a></li>                                                  <li><a href="https://iviettech.vn/viettech/1351-sequence-diagram-ban-ve-tuan-tu.html">8. 8. Sequence Diagram: Bản vẽ tuần tự</a></li>                                                  <li><a href="https://iviettech.vn/blog/1358-thuc-hanh-xay-dung-sequence-diagarm.html">9. 9. Thực hành xây dựng Sequence Diagarm</a></li>                                                  <li><a href="https://iviettech.vn/blog/1620-component-diagram-ban-ve-thanh-phan.html">10. 10 Component Diagram: Bản vẽ thành phần</a></li>                                       </ul> -->      </div>      <h3 class="wd-tlh3-7"><a href="https://iviettech.vn/category/blog/scrum-methodology"><i class="iconmuch-blog-min">&nbsp;</i>Scrum Methodology</a></h3>   <div class="vt-scrum">											         <p class="vt-paragraph">Bàn về mô hình phát triển phần mềm.</p>         <!-- <ul class="vt-list-basic">                                               <li><a href="https://iviettech.vn/blog/283-co-ban-ve-scrum.html">1. 1. SCRUM – Phương thức sản xuất phần mềm hiện đại</a></li>                                                  <li><a href="https://iviettech.vn/blog/1783-scrum-best-practice-thuc-hanh-ap-dung-scrum.html">2. 2. SCRUM Best Practice – Thực hành áp dụng SCRUM</a></li>                                                  <li><a href="https://iviettech.vn/viettech/1795-lam-ro-cac-vai-tro-trong-scrum.html">3. 3. Làm rõ các vai trò trong SCRUM</a></li>                                       </ul> -->      </div>            </div><!-- END left_blog -->                <ul class="cls-ads-listing">
+                <li>
+                <a href="http://iviettech.vn/category/chuong-trinh-dao-tao">
+                    <img src="https://iviettech.vn/wp-content/uploads/2017/05/Blog-Ads.png" alt="Đăng ký học"/>
+                </a>
+            </li>
+            </ul>            </div>        </div>    </div></div><!--end container--><script type="text/javascript">var switchTo5x = true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "70e3c6f6-8875-4060-8851-8693494b90b8", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script></div>
+
+
+
+</div>
+
+
+
+<div id="vt-push" class="cls-push-space-footer">&nbsp;</div>
+
+
+
+</div>
+
+
+
+<!--end vt-wrapper-->
+
+
+
+<div id="vt-footer-container" class="cls-container-footer-2">
+
+
+
+  <div class="container-fluid">
+
+
+
+    <div class="row-fluid">
+
+
+
+      <div class="vt-center">
+
+
+
+        <div class="vt-brand">
+
+
+
+          <p><strong>Địa chỉ :</strong> 92 Quang Trung, Q. Hải Châu, TP. Đà Nẵng - <strong>Điện thoại :</strong> 02363 888 279</p>						
+
+
+
+          <p><strong>Email :</strong>  <a href="mailto:contact@iviettech.vn">contact@iviettech.vn</a></p>
+
+
+
+        </div>
+
+
+
+         <p class="copyright">Bản quyền thuộc về <a href="https://iviettech.vn">iViettech</a></p>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<!--end footer-->
+
+
+
+</div>
+
+
+
+
+
+
+
+<!--end page-layout-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.royalslider.v9.5.7.min.js" type="text/javascript"></script>	
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.mousewheel.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.transit.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.ba-throttle-debounce.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>	
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.mmenu.min.all.js" type="text/javascript"></script>	
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.dd.min.js" type="text/javascript"></script>	
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/common.js?ver=v1.2.0.2" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/developer.js?ver=v1.2.0.2" type="text/javascript"></script>
+
+
+
+<script src="https://iviettech.vn/wp-content/themes/viettech/js/jquery.quovolver.min.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4W4CLT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+
+
+<script>
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+
+
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+
+
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+
+
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+
+
+
+
+
+  ga('create', 'UA-49658524-1', 'iviettech.vn');
+
+
+
+  ga('require', 'displayfeatures');
+
+
+
+	  ga('require', 'linkid', 'linkid.js');
+
+
+
+  ga('send', 'pageview');
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+        <div id='fb-root'></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v6.0&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+          <div class='fb-customerchat'
+            attribution='wordpress'
+            attribution_version='2.2'
+            page_id=582430048508163
+          >
+        </div>
+        <script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/iviettech.vn\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var qpprFrontData = {"linkData":{"https:\/\/iviettech.vn\/viettech\/4579-ky-su-phan-mem-on-the-job-training.html":[0,0,""],"https:\/\/iviettech.vn\/viettech\/449-lap-trinh-ios.html":[0,0,""]},"siteURL":"https:\/\/iviettech.vn","siteURLq":"https:\/\/iviettech.vn"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://iviettech.vn/wp-content/plugins/bwp-minify/min/?f=wp-content/plugins/contact-form-7/includes/js/scripts.js,wp-content/plugins/quick-pagepost-redirect-plugin/js/qppr_frontend_script.min.js,wp-content/plugins/page-links-to/dist/new-tab.js,wp-includes/js/wp-embed.min.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&appId=1623303634555501&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+<!-- Dynamic page generated in 0.206 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2022-01-02 15:55:58 -->
+
+<!-- Compression = gzip -->
